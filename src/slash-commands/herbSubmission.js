@@ -41,6 +41,7 @@ module.exports = {
 
         const clanLabel = new LabelBuilder()
             .setLabel("Clan")
+            .setDescription('The clan you are submitting the herbs to')
             .setStringSelectMenuComponent(clanSelect)
 
         const herbSelect = new StringSelectMenuBuilder()
@@ -51,16 +52,66 @@ module.exports = {
             .addOptions(
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Alder bark')
-                    .setDescription('tree bark oohh')
                     .setValue('alderbark'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Borage')
-                    .setDescription('pretty flower')
                     .setValue('borage'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Budock Root')
+                    .setValue('burdock-root'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Burnet')
+                    .setValue('burnet'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Catmint')
+                    .setValue('catmint'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Cobwebs')
+                    .setValue('cobwebs'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Comfrey')
+                    .setValue('comfrey'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Curly Dock')
+                    .setValue('curly-dock'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Eyebright')
+                    .setValue('eyebright'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Feverfew')
+                    .setValue('feverfew'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Geruanium')
+                    .setValue('geruanium'),
+                new StringSelectMenuOptionBuilder()
+                    .setValue('Lavender')
+                    .setLabel('lavender'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Marigold')
+                    .setValue('marigold'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Poppy seeds')
+                    .setValue('poppy-seeds'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Sea Buckthorn')
+                    .setValue('sea-buckthorn'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Tansy')
+                    .setValue('tansy'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Wild Garlic')
+                    .setValue('wild-garlic'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Willow Bark')
+                    .setValue('willow-bark'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('Yarrow')
+                    .setValue('yarrow'), 
             );
 
         const herbLabel = new LabelBuilder()
             .setLabel("What herb are you submitting?")
+            .setDescription('Select the herb you are submitting from the dropdown')
             .setStringSelectMenuComponent(herbSelect)
 
         modal.addLabelComponents(nameLabel, clanLabel, herbLabel);
