@@ -1,9 +1,9 @@
-const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent} = require('discord.js')
+const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction} = require('discord.js')
 
 module.exports = {
     run: async({ interaction}) => {
         const modal = new ModalBuilder({
-            customId: `new Modal-${interaction.user.id}`,
+            customId: `herbSubmmission-${interaction.user.id}`,
             title: `Herb Submission`,
         });
 
@@ -126,10 +126,23 @@ module.exports = {
             .setTextInputComponent(amountInput)
 
         modal.addLabelComponents(nameLabel, clanLabel, herbLabel, amountLabel);
-        await interaction.showModal(modal);
-        
-    },  
+        await interaction.showModal(modal); 
 
+        //wait for the modal to be submitted
+        const filter = (interaction) => interaction.customId === `herbSubmmission-${interaction.user.id}`;
+
+        interaction
+            .awaitModalSubmit({ filter, time: 3600000 })
+            .then((ModalSubmitInteraction) => {
+                const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
+
+                ModalSubmitInteraction.reply(`Your name is: ${name}`)
+            })
+            .catch((err) => {
+                console.log(`Error: ${err}`);
+            })
+            
+    },  
 
     data: {
         name: 'herb-submission',
