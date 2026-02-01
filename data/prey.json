@@ -1,0 +1,264 @@
+{
+    "prey": [
+        {
+            "prey_name":"barbel",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"bats",
+            "alternative_names": ["bat"],
+            "categories": ["foliage", "cave"]
+        },
+        {
+            "prey_name":"beaver",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"beetles",
+            "alternative_names": ["beetle"],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"bitterling",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"bittern",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"carp",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"chipmunk",
+            "alternative_names": [],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"chub",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"crayfish",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"crickets",
+            "alternative_names": ["cricket"],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"dace",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"dove",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"eel",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"frog",
+            "alternative_names": [],
+            "categories": ["cave", "wetland"]
+        },
+        {
+            "prey_name":"goldfish",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"godwit",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"grey squirrel",
+            "alternative_names": ["gray squirrel", "gray-squirrel", "graysquirrel", "grey-squirrel", "greysquirrel"],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"guppy",
+            "alternative_names": ["guppies", "guppys"],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"gull",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"hedgehog",
+            "alternative_names": [],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"kingfisher",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"lark",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"lizard",
+            "alternative_names": [],
+            "categories": ["cave", "foliage"]
+        },
+        {
+            "prey_name":"loach",
+            "alternative_names": [],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"mallard",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"minnow",
+            "alternative_names": ["minnows"],
+            "categories": ["water"]
+        },
+        {
+            "prey_name":"mole",
+            "alternative_names": [],
+            "categories": ["cave", "land"]
+        },
+        {
+            "prey_name":"moorhen",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"mouse",
+            "alternative_names": [],
+            "categories": ["cave", "foliage"]
+        },
+        {
+            "prey_name":"newt",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"pigeon",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"pine marten",
+            "alternative_names": ["pine-marten", "pinemarten"],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"plover",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"polecat",
+            "alternative_names": [],
+            "categories": ["cave"]
+        },
+        {
+            "prey_name":"rabbit",
+            "alternative_names": [],
+            "categories": ["cave", "land"]
+        },
+        {
+            "prey_name":"rat",
+            "alternative_names": [],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"red squirrel",
+            "alternative_names": ["redsquirrel", "red-squirrel"],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"robin",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"salamander",
+            "alternative_names": [],
+            "categories": ["wetland"]
+        },
+        {
+            "prey_name":"shrew",
+            "alternative_names": [],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"snail",
+            "alternative_names": ["snails"],
+            "categories": ["cave"]
+        },
+        {
+            "prey_name":"snake",
+            "alternative_names": [],
+            "categories": ["foliage","land"]
+        },
+        {
+            "prey_name":"sparrow",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"starling",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"stoat",
+            "alternative_names": [],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"toad",
+            "alternative_names": [],
+            "categories": ["land"]
+        },
+        {
+            "prey_name":"vole",
+            "alternative_names": [],
+            "categories": ["cave","land"]
+        },
+        {
+            "prey_name":"warbler",
+            "alternative_names": [],
+            "categories": ["air"]
+        },
+        {
+            "prey_name":"woodpecker",
+            "alternative_names": [],
+            "categories": ["foliage"]
+        },
+        {
+            "prey_name":"worm",
+            "alternative_names": ["worms"],
+            "categories": ["cave"]
+        },
+        {
+            "prey_name":"wren",
+            "alternative_names": [],
+            "categories": ["air"]
+        }
+    ]
+}

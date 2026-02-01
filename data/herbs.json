@@ -1,0 +1,384 @@
+{
+  "herbs": [
+    {
+        "Name": "Alder Bark",
+        "Usage": "Astringent",
+        "Description": "The Black Alder is a tree native to much of Europe that thrives in moist soils. The bark is greenish or greyish brown, and more easily harvested off of younger trees, when it is thinner.",
+        "Application": "Alder bark may be applied to a wound, once it is cleaned off, to reduce inflammation and bleeding. It does not require any special preparation prior to use.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Common"
+        },
+        "Locations": {
+            "tc": "#red-ravine, #sandy-hollow, #emergency shelter, #alder-crossway, #flooded-meadow, #rickety-bridge, rc border channels",
+            "sc": "#oak-forest, #twoleg-trail, #alder-carr, #fern-pond, #overgrown-fen, #rocky-copse",
+            "rc": "#stepping-stones, #the-falls, #stargazers-point, #hopes-hollow, #derelict-twolegplace, #the-rivulets, #mellow-woods; TC and WC border channels",
+            "wc": "#birch-grove, RC border",
+            "outsiders": "#melodic-remnants, #twisted-lights, #twirled-pages, #fungal-woods, #windling-forest, #bending-boughs, #rocky-shores"
+        }
+    },
+    {
+        "Name": "Borage",
+        "Usage": "Gastrointestinal & Respiratory Symptoms",
+        "Description": "Borage is an annual herb growing up to a meter tall, with star-shaped flowers that are usually blue to purple, but occasionally pink in color. It prefers well-drained soils, and flowers from summer through fall. The flower is said to have a sweet, honey-like taste.",
+        "Application": "Ingested. The seeds contain the relevant chemicals. These are gathered and dosed by whole flowers.",
+        "Toxicity": "This plant can have adverse effects in large quantities, but normal dosage is unlikely to be dangerous. Keep kittens out of the stores.",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#tc-garden, #tc-general-territory, #furred-hollows, #great-sycamore, #twoleg-trail-east, #twoleg-trail-west, #twisted-canopy, #secret-glade, #hunters-river, #flooded-meadow, #berry-branches, sc border channels",
+            "sc": "#the-stonepile, #shattered-sycamore, #flood-camp, tc border channels, #mother-falls, #shaded-highlands, #furthest-hills, #rocky-copse",
+            "rc": "#rolling-acres, #beech-copse, #mellow-woods",
+            "wc": "#moorland, #outlook-rock, #heather-hideaway, #meadow, #silent-thunderpath",
+            "outsiders": "#kittypet-nests, #fungal-woods, #endless-elms, #winding-forest, #forgotten-ruins"
+        }
+    },
+    {
+        "Name": "Burdock Root",
+        "Usage": "Antibiotic & Respiratory Symptoms",
+        "Description": " A tall thistle-like plant, up to three meters in height, that grows in open fields and roadsides. Its flowers are purple to pink and surrounded by prickles. The root is only a couple centimeters in width but can stretch quite deep, up to one meter. They are best harvested in autumn, as they may become too fibrous afterwards.",
+        "Application": "The burdock root must be cleaned and dried before use. It is typically used as a poultice on bite wounds to prevent or treat infection, but it can also be ingested for respiratory symptoms.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Uncommon",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#tc-garden, #great-sycamore, #owl-tree, #sunbath-boulders, #muddy-coliseum, sc border channels, #sacred-oak, #shimmering-cave, fourtrees channels",
+            "sc": "#shattered-sycamore, #flood-camp, all border channels, #mother-falls, #furthest-hills",
+            "rc": "#crafts-corner, #clover-grove, #the-falls, #stargazers-point, #rolling-acres; Fourtrees channels",
+            "wc": "#moorland, #outlook-rock, #meadow, #windover-farm, #silent-thunderpath, #slumbering-garden; all Underground channels EXCEPT #deep-meadow, #underground-lake; SC border; Fourtrees",
+            "outsiders": "#the-farmlands, #great-peaks, #yawning-cenote, #bending-boughs, #winding-forest"
+        }
+    },
+    {
+        "Name": "Burnet",
+        "Usage": "Astringent - Specifically good for burns",
+        "Description": "A long-stemmed plant growing up to 90 cm high, with red-brown flowers that bloom in summer. Prefers moist, open areas.",
+        "Application": "The root has astringent and anti-inflammatory properties. They are best collected in fall, and like burdock root, should be washed and dried before use. It is good to apply to fresh wounds to slow bleeding and reduce inflammation, and it is a common choice for burn treatment.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Uncommon",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#great-sycamore, #twoleg-trail-east, #twoleg-trail-west, #sunbath-boulders, #emergency shelter, #alder-crossway, #muddy-coliseum, #hunters-river, #sacred-oak, #shimmering-cave, rc border channels",
+            "sc": "#the-stonepile, #mushroom-grove, #clubmoss-field, wc border channels, #wild-glasshouse, #mother-falls",
+            "rc": "#rc-camp-moat, #stepping-stones, #dripping-willows, #the-rivulets, #twoleg-camp, #swimming-hole; TC and WC border channels",
+            "wc": "#moorland, #outlook-rock, #heather-hideaway, #meadow; RC border; SC border",
+            "outsiders": "#the-farmlands, #great-peaks, #forgotten-ruins"
+        }
+    },
+        {
+        "Name": "Catmint",
+        "Usage": "Respiratory Symptoms",
+        "Description": " A perennial white-flowered herb, growing half a meter to a meter tall. It blooms from late spring through fall. Grown as a garden herb, so is associated with places that twolegs have inhabited.",
+        "Application": "Leaves are ingested. The preferred treatment for severe chest illnesses. For young kittens who cannot ingest it, the leaves may instead be placed in the nest.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#tallpines, #treecutplace",
+            "sc": "#abandoned-cabin, #furthest-hills",
+            "rc": "#crafts-corner, #hopes-hollow, #twoleg-camp, #derelict-twolegplace, #rolling-acres, #lovers-meadow",
+            "wc": "#windover-farm",
+            "outsiders": "#kittypet-nests, #twoleg-graveyard, #hidden-lagoon, #forgotten-ruins"
+        }
+    },
+        {
+        "Name": "Cobwebs",
+        "Usage": "Bandaging",
+        "Description": "The webs of spiders. Their tendency to stick to each other and to fur makes it possible to use them as makeshift bandages.",
+        "Application": "Can be pressed firmly to a still bleeding wound to apply pressure and soak up the blood, and can be used as a light bandage to protect wounds. May also be combined with sticks and vines (not tracked) for makeshift splints to prevent a limb from moving as much while it heals.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Common"
+        },
+        "Locations": {
+            "tc": "everywhere!",
+            "sc": "everywhere!",
+            "rc": "everywhere EXCEPT #crafts-corner",
+            "wc": "everywhere EXCEPT #babbling-brook, #deep-meadow",
+            "outsiders": "#city-alleyways, #the-underways, #kittypet-nests, #melodic-remnants, #twisted-lights, #twirled-pages, #twoleg-graveyard, #great-peaks, #earths-fissure, #fungal-woods, #endles-elms, #yawning-cenote, #winding-forest, #bending-boughs, #rocky-shore, #hidden-lagoon, #decaying-docks, #forgotten-ruins"
+        }
+    },
+    {
+        "Name": "Comfrey",
+        "Usage": "Respiratory Symptoms & Pain",
+        "Description": "Comfrey is a perennial plant found in moist grasslands in western Asia, Europe, and North America. The hardy plant can grow to a height of 1–3 ft. Between Newleaf and Greenleaf it bears small bell-shaped flowers of various colours, typically cream, white, pink or purplish. They are coiled at first and then open out.",
+        "Application": "Both leaves and roots of the comfrey plant are typically used as a poultice for pain or older-wound healing. If suffering from respiratory health, inhaling or rubbing it on the chest can work as an expectorant.",
+        "Toxicity": "Should never be consumed, nor applied directly to fresh wounds.",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#shimmering-cave",
+            "sc": "#blooming-orchard",
+            "rc": "#old-dock",
+            "wc": "#the-bell-tree, #deep-meadow",
+            "outsiders": "#kittypet-nests, #great-peaks, #endless-elms, #yawning-cenote, #rocky-shores, #hidden-lagoon, #decaying-docks"
+        }
+    },
+    {
+        "Name": "Curly Dock",
+        "Usage": "Astringent - Best for small cuts and sores",
+        "Description": "An herb with a stalk of flowers growing up to a 1.5 meters. The leaves grow from the bottom, and are long with distinct wavy or curled edges. It occurs in various open or semi-open areas. The leaves have a tart taste. ",
+        "Application": "Poultice of the leaves or root can be applied to wounds. It is preferred for small cuts and sores, but depending on availability of other herbs can be used on any wound.",
+        "Toxicity": "Could make a cat sick if too much is consumed, so avoid snacking.",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#tc-garden, #tallpines, #light-woods, #twoleg-trail-east, #twoleg-trail-west, #sunbath-boulders, #emergency shelter, #sacred-oak, rc border channels",
+            "sc": "#the-stonepile, #mushroom-grove, #clubmoss-field, #shattered-sycamore, #flood-camp, wc border channels, #dead-thunderpath, #mother-falls, #overgrown-fen, #furthest-hills",
+            "rc": "#stepping-stones, #the-falls, #derelict-twolegplace, #twoleg-camp, #beech-copse, #swimming-hole; TC border channels",
+            "wc": "#moorland, #outlook-rock, #birch-grove, #meadow, #stone-water-arc, #deep-meadow; SC border",
+            "outsiders": "#twirled-pages, #twoleg-graveyard, #winding-forest, #rocky-shores, #decaying-docks"
+        }
+    },
+    {
+        "Name": "Eyebright",
+        "Usage": "Eye Infection & Respiratory Symptoms",
+        "Description": "A small annual herb, most easily identified by its distinctively shaped white flowers. Grows in open fields and forest margins.",
+        "Application": "For eye infections, the juice is applied to the eye, either by squeezing it in or by pressing soaked moss over the closed eye. It may also be ingested to soothe a sore throat.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Rare",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Uncommon"
+        },
+        "Locations": {
+            "tc": "#tc-garden, #tallpines, #light-woods, #twoleg-trail-east, #twoleg-trail-west, #emergency shelter",
+            "sc": "#the-stonepile, #mushroom-grove, #clubmoss-field, #shattered-sycamore, #flood-camp, wc border channels, #wild-glasshouse, #mother-falls, #furthest-hills",
+            "rc": "#stepping-stones, #the-falls, #beech-copse, #lovers-meadow",
+            "wc": "#moorland, #outlook-rock, #birch-grove, #meadow, #stone-water-arc, #deep-meadow; SC border",
+            "outsiders": "#tc-garden, #tallpines, #light-woods, #twoleg-trail-east, #twoleg-trail-west, #emergency shelter"
+        }
+    },
+    {
+        "Name": "Feverfew",
+        "Usage": "Pain & Fever",
+        "Description": "A small bush with daisy-like flowers that bloom in summer through early fall. Grows anywhere sunny, not too picky about soil types.",
+        "Application": "The leaves are ingested. It is the preferred treatment for feverish illnesses in kittens who cannot chew willow bark, and a good supplement to willow bark for others.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Uncommon"
+        },
+        "Locations": {
+            "tc": "#great-sycamore, #owl-tree, #sandy-hollow, #sunbath-boulders, #sacred-oak, #rickety-bridge, fourtrees channels",
+            "sc": "#mushroom-grove, #clubmoss-field, #flood-camp, fourtrees channels, #cluttered-field, #wild-glasshouse, #mother-falls, #overgrown-fen, #furthest-hills",
+            "rc": "all RC territory channels EXCEPT #hopes-hollow, #derelict-twolegplace, #hidden-grotto, #twoleg-camp, #withered-barn, #mellow-woods, #sirens-cove, caves; Fourtrees channels",
+            "wc": "#moorland, #outlook-rock, #heather-hideaway, #meadow, #babbling-brook, #silent-thunderpath, #stone-water-arc, #slumbering-garden, #twoleg-burrow, #deep-meadow; Fourtrees",
+            "outsiders": "#kittypet-nests, #the-farmlands, #great-peaks, #rocky-shores, #hidden-lagoon"
+        }
+    },
+    {
+        "Name": "Geranium",
+        "Usage": "Toothaches & Nosebleeds",
+        "Description": "A plant with five-petaled pink flowers and red stems, flowering mid-spring through fall. The leaves turn red at the end of the flowering season, too.",
+        "Application": "Leaves are chewed on for toothaches, or applied around the nose as a poultice for nosebleeds.",
+        "Toxicity": "Geraniums of the Pelargonium genus are toxic to cats, but these are Geranium genus which I cannot find data on. For the purpose of this roleplay, they will be treated as not significantly toxic",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "all tc territory channels EXCEPT #great-sycamore, #owl-tree, #sunbath-boulders, #emergency shelter, #muddy-coliseum, #berry-branches, #flooded-meadow, #rickety-bridge, and #secret-glade",
+            "sc": "#oak-forest,  #mushroom-grove,  #twoleg-trail, #pine-forest, #alder-carr, #fern-pond, #shattered-sycamore, #cluttered-field, #wild-glasshouse, #shaded-highlands, #rocky-copse",
+            "rc": "#crafts-corner, #hopes-hollow, #beech-copse, #mellow-woods, #lovers-meadow",
+            "wc": "#moorland, #birch-grove, #heather-hideaway, #babbling-brook, #windover-farm, #silent-thunderpath, #deep-meadow",
+            "outsiders": "#the-underways, #fungal-woods, #yawning-cenote, #hidden-lagoon, #forgotten-ruins"
+        }
+    },
+    {
+        "Name": "Lavender",
+        "Usage": "Ear Infection & Sedative",
+        "Description": "An aromatic shrub with long stalks of small purple flowers, growing as high as 1-2 meters. It is not native to England, but it is commonly cultivated. It prefers drier soils. ",
+        "Application": "Both the leaves and flowers are used. For ear infections, it is applied as a poultice around the ear. A sprig may also be given to calm a cat who needs rest to heal, as an alternative to or in conjunction with Poppy Seeds.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Common",
+            "Leafall": "Rare",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#owl-tree, #secret-glade, fourtrees channels",
+            "sc": "#abandoned-cabin, #twoleg-trail, fourtrees channels, #wild-glasshouse, #furthest-hills",
+            "rc": "#crafts-corner, #derelict-twolegplace, #twoleg-camp, #rolling-acres, #lovers-meadow; fourtrees channels",
+            "wc": "#heather-hideaway, #meadow, #babbling-brook, #windover-farm, #silent-thunderpath, #stone-water-arc, #deep-meadow; Fourtrees",
+            "outsiders": "#kittypet-nests, #melodic-remnants, #endless-elms, #forgotten-ruins"
+        }
+    },
+    {
+        "Name": "Marigold",
+        "Usage": "Antibiotic",
+        "Description": "The English marigold is a plant growing up to 80cm tall, with bright orange or yellow flowers. It flowers late spring through fall. It is not native to the UK, but it is a popular garden plant and is known to escape at times. It will grow anywhere sunny.",
+        "Application": "The flowers are used in poultices to stave off or treat infection in wounds. The oil also protect the skin, so it is often highly preferred in wound dressing when available.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#tc-garden, #great-sycamore, #owl-tree, #sandy-hollow, #sunbath-boulders, #secret-glade, #berry-branches, sc border channels, fourtrees channels",
+            "sc": "#mushroom-grove, #clubmoss-field, #flood-camp, #cluttered-field, tc border channels, fourtrees channels, #wild-glasshouse, #dead-thunderpath, #furthest-hills",
+            "rc": "all RC territory channels EXCEPT #hopes-hollow, #derelict-twolegplace, #hidden-grotto, #twoleg-camp, #withered-barn, #mellow-woods, #sirens-cove, caves; fourtrees channels",
+            "wc": "#moorland, #outlook-rock, #heather-hideaway, #meadow, #babbling-brook, #silent-thunderpath, #slumbering-garden; Fourtrees",
+            "outsiders": "#the-farmlands, #fungal-woods, #winding-forest, #hidden-lagoon, #forgotten-ruins"
+        }
+    },
+    {
+        "Name": "Poppy Seeds",
+        "Usage": "Pain & Sedative",
+        "Description": "A red, pink, or white flower growing up to a meter tall. It flowers in summer, with the seed pods dried and ready for harvest by fall. The seed pods, when fully matured, are brown in color, with openings at the top to allow the seeds to disperse.",
+        "Application": "A couple poppy seeds are ingested by mouth to treat pain of any sort, and/or to make a cat sleep. Care should be taken to not give a cat too many in a short time.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Rare",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Uncommon"
+        },
+        "Locations": {
+            "tc": "#great-sycamore, #owl-tree, #secret-glade, #berry-branches, all border channels",
+            "sc": "#the-stonepile, #clubmoss-field, #shattered-sycamore, #flood-camp,  all border channels, #wild-glasshouse, #mother-falls, #shaded-highlands",
+            "rc": "#clover-grove, #stargazers-point, #derelict-twolegplace, #twoleg-camp, #rolling-acres, #lovers-meadow; fourtrees channels; all border channels",
+            "wc": "#moorland, #outlook-rock, #meadow, #babbling-brook, #slumbering-garden; RC border; SC border; Fourtrees",
+            "outsiders": "#kittypet-nests, #melodic-remnants, #the-farmlands, #twoleg-graveyard, #bending-boughs"
+        }
+    },
+    {
+        "Name": "Sea Buckthorn",
+        "Usage": "Gastrointestinal Symptoms",
+        "Description": "A prickly deciduous shrub, growing around 2-4 meters high. It flowers in the summer, and produces yellow-orange berries in the fall. The berries are quite sour, and very high in Vitamin C and other nutrients.",
+        "Application": "Berries are ingested.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Uncommoon",
+            "Greenleaf": "Rare",
+            "Leafall": "Common",
+            "Leafbare": "Common"
+        },
+        "Locations": {
+            "tc": "#great-sycamore, #owl-tree, #hunters-river, #flooded-meadow, #berry-branches, sc border channels, fourtrees channels",
+            "sc": "#shattered-sycamore, #flood-camp, tc border channels, fourtrees channels, #cluttered-field, #mother-falls, #shaded-highlands",
+            "rc": "#hopes-hollow, #beech-copse; Fourtrees channels",
+            "wc": "#moorland, #meadow, #silent-thunderpath, #slumbering-garden, #deep-meadow; RC border; SC border; Fourtrees",
+            "outsiders": "#great-peaks, #rocky-shores, #hidden-lagoon, #decaying-docks"
+        }
+    },
+    {
+        "Name": "Tansy",
+        "Usage": "Gastrointestinal Symptoms, Respiratory Symptoms & Pain",
+        "Description": "Tansy is a flowering herbaceous plant with finely divided compound leaves and yellow, button-like flowers. It has a stout, somewhat reddish, erect stem, usually smooth, 50–150 cm tall, and branching near the top.",
+        "Application": "Tansy leaves, and the flower head are both ingested. It's a good choice for head pains, body aches and can help strengthen a failing immune system.",
+        "Toxicity": "Must be used in small doses, as it has cause to kill if too much is consumed. Young kittens should not ingest unless absolutely necessary.",
+        "Rarity": {
+            "Newleaf": "Rare",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Uncommon"
+        },
+        "Locations": {
+            "tc": "#flooded-meadow",
+            "sc": "#stargazer-glade",
+            "rc": "#derelict-twolegplace, #swimming-hole",
+            "wc": "#outlook-rock, #deep-meadow",
+            "outsiders": "#twisted-lights, #the-farmlands, #fungal-woods, #yawning-cenote, #bending-boughs, #hidden-lagoon"
+        }
+    },
+    {
+        "Name": "Wild Garlic",
+        "Usage": "Antibiotic",
+        "Description": "An herb with clusters of star-shaped white flowers, easily identified by the strong smell. Unlike other plants known as garlic, it does not produce bulbils.",
+        "Application": "Leaves applied as a poultice. Preferred for wounds such as bites that have a high risk of becoming infected.",
+        "Toxicity": "As with all plants in the onion/garlic family, it is quite toxic to cats. Healers should take special care not to ingest any when using it.",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Uncommon",
+            "Leafall": "Rare",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "all tc territory channels EXCEPT #great-sycamore, #owl-tree, #sunbath-boulders, #emergency shelter, #twisted-canopy, #alder-crossway, #flooded-meadow, #berry-branches, #rickety-bridge, and #muddy-coliseum, rc border channels",
+            "sc": "#oak-forest, #mushroom-grove, #twoleg-trail, #pine-forest #alder-carr, #fern-pond, #wild-glasshouse, #dead-thunderpath, #mother-falls, ",
+            "rc": "#crafts-corner, #hopes-hollow, #derelict-twolegplace, #twoleg-camp, #beech-copse; TC border channels",
+            "wc": "#outlook-rock, #birch-grove, #babbling-brook, #twoleg-burrow, #deep-meadow",
+            "outsiders": "#kittypet-nests, #twisted-lights, #fungal-woods, #endless-elms, #winding-forest"
+        }
+    },
+    {
+        "Name": "Willow Bark",
+        "Usage": "Pain & Fever",
+        "Description": "The grey willow, white willow, and goat willow are all common in moist areas in the UK. Willows are known for having salicin in their bark, a precursor to aspirin. The bark itself is grey or grey-brown, and most easily harvested from younger plants.",
+        "Application": "Bark is chewed.",
+        "Toxicity": "N/A",
+        "Rarity": {
+            "Newleaf": "Common",
+            "Greenleaf": "Common",
+            "Leafall": "Common",
+            "Leafbare": "Common"
+        },
+        "Locations": {
+            "tc": "#red-ravine, #sandy-hollow, #muddy-coliseum, rc border channels",
+            "sc": "#oak-forest, #alder-carr, #fern-pond, #dead-thunderpath, #overgrown-fen, #rocky-copse",
+            "rc": "all RC territory channels EXCEPT #clover-grove, #stargazers-point, #twoleg-camp, #withered-barn, #rolling-acres, #beech-copse, #sirens-cove, #lovers-meadow, caves; TC and WC border channels",
+            "wc": "#birch-grove, RC border",
+            "outsiders": "#kittypet-nests, #twirled-pages, #twoleg-graveyard, #endless-elms, #winding-forest, #bending-boughs"
+        }
+    },
+    {
+        "Name": "Yarrow",
+        "Usage": "Astringent & Emetic" ,
+        "Description": "An herb with stems up to a meter tall, with clusters of small flowers at the top. Flowers are usually white, but sometimes various shades of pink. It is said to have a light grassy flavor.",
+        "Application": "Applied as a poultice to the wound. It has notable hemostatic properties, so is highly useful for larger wounds. For an emetic (used to induce vomiting), a small amount is ingested.",
+        "Toxicity": "It is toxic to cats (though not substantially to humans), hence its use as an emetic.",
+        "Rarity": {
+            "Newleaf": "Uncommon",
+            "Greenleaf": "Common",
+            "Leafall": "Uncommon",
+            "Leafbare": "Rare"
+        },
+        "Locations": {
+            "tc": "#red-ravine, #sandy-hollow, #muddy-coliseum, rc border channels",
+            "sc": "#oak-forest, #alder-carr, #fern-pond, #dead-thunderpath, #overgrown-fen, #rocky-copse",
+            "rc": "all RC territory channels EXCEPT #clover-grove, #stargazers-point, #twoleg-camp, #withered-barn, #rolling-acres, #beech-copse, #sirens-cove, #lovers-meadow, caves; TC and WC border channels",
+            "wc": "#birch-grove, RC border",
+            "outsiders": "#the-farmlands, #winding-forest"
+        }
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+    "prey_categories": {
+        "air":[
+            {
+                "prey_name": "dove",
+                "alternative_names": [],
+                "emoji": "🕊️",
+                "weight": 1
+            },
+            {
+                "prey_name": "kingfisher",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 1
+            },
+            {
+                "prey_name": "lark",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "pigeon",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "plover",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "robin",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "sparrow",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 3
+            },
+            {
+                "prey_name": "starling",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "warbler",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "wren",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            }
+        ],
+        "cave":[
+            {
+                "prey_name": "bats",
+                "alternative_names": ["bats"],
+                "emoji": "🦇",
+                "weight": 2
+            },
+            {
+                "prey_name": "frog",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "lizard",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2
+            },
+            {
+                "prey_name": "mole",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 2
+            },
+            {
+                "prey_name": "mouse",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 2
+            },
+            {
+                "prey_name": "polecat",
+                "alternative_names": [],
+                "emoji": "🐌",
+                "weight": 1
+            },
+            {
+                "prey_name": "snail",
+                "alternative_names": ["snails"],
+                "emoji": "🐌",
+                "weight": 2
+            },
+            {
+                "prey_name": "vole",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 2
+            },
+            {
+                "prey_name": "worm",
+                "alternative_names": ["worms"],
+                "emoji": "🪱",
+                "weight": 3
+            }
+        ],
+        "foliage":[
+            {
+                "prey_name": "bats",
+                "alternative_names": ["bat"],
+                "emoji": "🦇",
+                "weight": 1
+            },
+            {
+                "prey_name": "chipmunk",
+                "alternative_names": [],
+                "emoji": "🐿️",
+                "weight": 2 
+            },
+            {
+                "prey_name": "grey squirrel",
+                "alternative_names": ["gray squirrel", "gray-squirrel", "graysquirrel", "grey-squirrel", "greysquirrel"],
+                "emoji": "🐿️",
+                "weight": 3
+            },
+            {
+                "prey_name": "lizard",
+                "alternative_names": [],
+                "emoji": "🦎",
+                "weight": 2
+            },
+            {
+                "prey_name": "mouse",
+                "alternative_names": [],
+                "emoji": "🐁",
+                "weight": 2
+            },
+            {
+                "prey_name": "pine marten",
+                "alternative_names": ["pine-marten", "pinemarten"],
+                "emoji": "🐿️",
+                "weight": 2
+            },
+            {
+                "prey_name": "red squirrel",
+                "alternative_names": ["redsquirrel", "red-squirrel"],
+                "emoji": "🐿️",
+                "weight": 2
+            },
+            {
+                "prey_name": "snake",
+                "alternative_names": [],
+                "emoji": "🐍",
+                "weight": 2
+            },
+            {
+                "prey_name": "stoat",
+                "alternative_names": [],
+                "emoji": "🐿️",
+                "weight": 2
+            },
+            {
+                "prey_name": "woodpecker",
+                "alternative_names": [],
+                "emoji": "🐦",
+                "weight": 2 
+            }
+        ],
+        "land":[
+            {
+                "prey_name": "beetles",
+                "alternative_names": ["beetle"],
+                "emoji": "🐞",
+                "weight": 2
+            },
+            {
+                "prey_name": "crickets",
+                "alternative_names": ["cricket"],
+                "emoji": "🦗",
+                "weight": 2
+            },
+            {
+                "prey_name": "hedgehog",
+                "alternative_names": [],
+                "emoji": "🦔",
+                "weight": 2
+            },
+            {
+                "prey_name": "mole",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 1
+            },
+            {
+                "prey_name": "rat",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 2
+            },
+            {
+                "prey_name": "shrew",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 3
+            },
+            {
+                "prey_name": "snake",
+                "alternative_names": [],
+                "emoji": "🐍",
+                "weight": 2
+            },
+            {
+                "prey_name": "toad",
+                "alternative_names": [],
+                "emoji": "🐸",
+                "weight": 2
+            },
+            {
+                "prey_name": "vole",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 2
+            }
+        ],
+        "water":[
+            {
+                "prey_name": "barbel",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },   
+            {
+                "prey_name": "bitterling",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "carp",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "chub",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "crayfish",
+                "alternative_names": [],
+                "emoji": "🦞",
+                "weight": 2
+            },
+            {
+                "prey_name": "eel",
+                "alternative_names": [],
+                "emoji": "🐍",
+                "weight": 1
+
+            },
+            {
+                "prey_name": "goldfish",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "guppy",
+                "alternative_names": ["guppies", "guppys"],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "loach",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            },
+            {
+                "prey_name": "minnow",
+                "alternative_names": ["minnows"],
+                "emoji": "🐟",
+                "weight": 3
+            }
+        ],
+        "wetland":[
+            {
+                "prey_name": "beaver",
+                "alternative_names": [],
+                "emoji": "🐀",
+                "weight": 1
+            }, 
+            {
+                "prey_name": "bittern",
+                "alternative_names": [],
+                "emoji": "🦆",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "dace",
+                "alternative_names": [],
+                "emoji": "🐟",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "frog",
+                "alternative_names": [],
+                "emoji": "🐸",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "godwit",
+                "alternative_names": [],
+                "emoji": "🦢",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "gull",
+                "alternative_names": [],
+                "emoji": "🦆",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "mallad",
+                "alternative_names": [],
+                "emoji": "🦆",
+                "weight": 2
+            }, 
+            {
+                "prey_name": "newt",
+                "alternative_names": [],
+                "emoji": "🦎",
+                "weight": 3
+            }, 
+            {
+                "prey_name": "salamander",
+                "alternative_names": [],
+                "emoji": "🦎",
+                "weight": 2
+            }
+        ]
+    }
+}
