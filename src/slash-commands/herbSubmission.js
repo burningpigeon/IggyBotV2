@@ -1,4 +1,6 @@
 const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction} = require('discord.js')
+const { isValidInt } = require('../utils');
+
 
 module.exports = {
     run: async({ interaction}) => {
@@ -135,13 +137,17 @@ module.exports = {
             .awaitModalSubmit({ filter, time: 3600000 })
             .then((ModalSubmitInteraction) => {
                 const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
-
-                ModalSubmitInteraction.reply(`Your name is: ${name}`)
+                const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')
+                const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
+                
+                if (isValidInt(amount) === false) {
+                    return ModalSubmitInteraction.reply('The amount of herbs submitted must be a valid integer.');
+                }
+                ModalSubmitInteraction.reply(`Your name is: ${name} and you are in ${clan}`)
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);
             })
-            
     },  
 
     data: {
