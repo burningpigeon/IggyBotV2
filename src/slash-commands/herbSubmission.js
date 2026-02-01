@@ -114,7 +114,18 @@ module.exports = {
             .setDescription('Select the herb you are submitting from the dropdown')
             .setStringSelectMenuComponent(herbSelect)
 
-        modal.addLabelComponents(nameLabel, clanLabel, herbLabel);
+        const amountInput = new TextInputBuilder()
+            .setId(5)
+            .setCustomId('amountInput')
+            .setStyle(TextInputStyle.Short)
+            .setRequired(true)
+
+        const amountLabel = new LabelBuilder()
+            .setLabel('How many herbs are you submitting?')
+            .setDescription('The amount of herbs you are submitting')
+            .setTextInputComponent(amountInput)
+
+        modal.addLabelComponents(nameLabel, clanLabel, herbLabel, amountLabel);
         await interaction.showModal(modal);
         
     },  
