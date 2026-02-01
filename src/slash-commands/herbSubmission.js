@@ -4,7 +4,7 @@ module.exports = {
     run: async({ interaction}) => {
         const modal = new ModalBuilder({
             customId: `new Modal-${interaction.user.id}`,
-            title: `new Modal`,
+            title: `Herb Submission`,
         });
 
         const nameInput = new TextInputBuilder()
@@ -19,8 +19,32 @@ module.exports = {
             .setDescription('The name of the cat who you are submitting herbs under')
             .setTextInputComponent(nameInput)
 
-        const herbSelect = new StringSelectMenuBuilder()
+        const clanSelect = new StringSelectMenuBuilder()
             .setId(2)
+            .setCustomId('clanSelect')
+            .setPlaceholder('The clan you are submitting herbs to')
+            .setRequired(true)
+            .addOptions(
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('ThunderClan')
+                    .setValue('thunderclan'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('ShadowClan')
+                    .setValue('shadowclan'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('RiverClan')
+                    .setValue('riverclan'),
+                new StringSelectMenuOptionBuilder()
+                    .setLabel('WindClan')
+                    .setValue('windclan'),
+            );
+
+        const clanLabel = new LabelBuilder()
+            .setLabel("Clan")
+            .setStringSelectMenuComponent(clanSelect)
+
+        const herbSelect = new StringSelectMenuBuilder()
+            .setId(3)
             .setCustomId('herbSelect')
             .setPlaceholder('Select a herb')
             .setRequired(true)
@@ -39,7 +63,7 @@ module.exports = {
             .setLabel("What herb are you submitting?")
             .setStringSelectMenuComponent(herbSelect)
 
-        modal.addLabelComponents(nameLabel, herbLabel);
+        modal.addLabelComponents(nameLabel, clanLabel, herbLabel);
         await interaction.showModal(modal);
         
     },  
