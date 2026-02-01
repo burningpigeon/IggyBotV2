@@ -1,4 +1,4 @@
-const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction} = require('discord.js')
+const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction, blockQuote, subtext, codeBlock} = require('discord.js')
 const { isValidInt } = require('../utils');
 
 
@@ -124,7 +124,7 @@ module.exports = {
 
         const amountLabel = new LabelBuilder()
             .setLabel('How many herbs are you submitting?')
-            .setDescription('The amount of herbs you are submitting')
+            .setDescription('The number of herbs you are submitting (1,2... etc)')
             .setTextInputComponent(amountInput)
 
         modal.addLabelComponents(nameLabel, clanLabel, herbLabel, amountLabel);
@@ -134,16 +134,20 @@ module.exports = {
         const filter = (interaction) => interaction.customId === `herbSubmmission-${interaction.user.id}`;
 
         interaction
-            .awaitModalSubmit({ filter, time: 3600000 })
+            .awaitModalSubmit({ filter, time: 360000 })
             .then((ModalSubmitInteraction) => {
                 const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
                 const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')
                 const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
-                
+
                 if (isValidInt(amount) === false) {
-                    return ModalSubmitInteraction.reply('The amount of herbs submitted must be a valid integer.');
+                    return ModalSubmitInteraction.reply("```The amount of herbs submitted must be a valid integer.```");
                 }
-                ModalSubmitInteraction.reply(`Your name is: ${name} and you are in ${clan}`)
+                const header = `:herb: **Herb Storage Submission** :herb:`
+                const message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
+                const blockQuoteMsg = codeBlock(message);
+                ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                console.log(interaction.user.id);
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);
@@ -155,3 +159,4 @@ module.exports = {
         description: 'Submits herbs to the backend'
     }
 }
+
