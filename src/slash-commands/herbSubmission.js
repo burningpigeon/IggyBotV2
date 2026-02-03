@@ -159,4 +159,3 @@ module.exports = {
         description: 'Submits herbs to the backend'
     }
 }
-
