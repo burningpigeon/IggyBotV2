@@ -140,6 +140,8 @@ module.exports = {
                 const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')
                 const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
 
+                // TO DO: Get timestamp
+
                 if (isValidInt(amount) === false) {
                     return ModalSubmitInteraction.reply("```The amount of herbs submitted must be a valid integer.```");
                 }

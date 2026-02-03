@@ -1,0 +1,24 @@
+{
+  "name": "iggybotv2",
+  "version": "1.0.0",
+  "description": "SOTCs discord bot for handling prey, herbs, backup rolling system and misc staff things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burningpigeon/IggyBotV2.git"
+  },
+  "author": "burningpigeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burningpigeon/IggyBotV2/issues"
+  },
+  "homepage": "https://github.com/burningpigeon/IggyBotV2#readme",
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "djs-commander": "^0.0.50",
+    "dotenv": "^17.2.3"
+  }
+}
