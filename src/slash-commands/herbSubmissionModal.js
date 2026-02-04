@@ -1,5 +1,6 @@
 const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction, blockQuote, subtext, codeBlock} = require('discord.js')
 const { isValidInt } = require('../utils');
+const { getFormattedTimestamp} = require('../utils');
 
 
 module.exports = {
@@ -149,7 +150,8 @@ module.exports = {
                 const message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
                 const blockQuoteMsg = codeBlock(message);
                 ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
-                console.log(interaction.user.id);
+                console.log(clan);
+                console.log(getFormattedTimestamp());
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);
