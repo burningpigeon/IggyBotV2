@@ -55,61 +55,61 @@ module.exports = {
             .addOptions(
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Alder bark')
-                    .setValue('alderbark'),
+                    .setValue('Alder Bark'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Borage')
-                    .setValue('borage'),
+                    .setValue('Borage'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Budock Root')
-                    .setValue('burdock-root'),
+                    .setValue('Burdock Root'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Burnet')
-                    .setValue('burnet'),
+                    .setValue('Burnet'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Catmint')
-                    .setValue('catmint'),
+                    .setValue('Catmint'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Cobwebs')
-                    .setValue('cobwebs'),
+                    .setValue('Cobwebs'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Comfrey')
-                    .setValue('comfrey'),
+                    .setValue('Comfrey'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Curly Dock')
-                    .setValue('curly-dock'),
+                    .setValue('Curly Dock'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Eyebright')
-                    .setValue('eyebright'),
+                    .setValue('Eyebright'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Feverfew')
-                    .setValue('feverfew'),
+                    .setValue('Feverfew'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Geruanium')
-                    .setValue('geruanium'),
+                    .setValue('Geruanium'),
                 new StringSelectMenuOptionBuilder()
                     .setValue('Lavender')
-                    .setLabel('lavender'),
+                    .setLabel('Lavender'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Marigold')
-                    .setValue('marigold'),
+                    .setValue('Marigold'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Poppy seeds')
-                    .setValue('poppy-seeds'),
+                    .setValue('Poppy Seeds'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Sea Buckthorn')
-                    .setValue('sea-buckthorn'),
+                    .setValue('Sea Buckthorn'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Tansy')
-                    .setValue('tansy'),
+                    .setValue('Tansy'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Wild Garlic')
-                    .setValue('wild-garlic'),
+                    .setValue('Wild Garlic'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Willow Bark')
-                    .setValue('willow-bark'),
+                    .setValue('Willow Bark'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Yarrow')
-                    .setValue('yarrow'), 
+                    .setValue('Yarrow'), 
             );
 
         const herbLabel = new LabelBuilder()

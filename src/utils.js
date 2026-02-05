@@ -13,16 +13,16 @@ function getFormattedTimestamp(){
     const now = new Date();
     const padding = (num) => String(num).padStart(2,'0');    
     // now.getMonth() returns a num that represents the month but starts at 0 rather than 1
-    const month = padding(now.getMonth()+ 1); 
-    const day = padding(now.getDate());
+    const month = now.getMonth()+ 1; 
+    const day = now.getDate();
     const year = now.getFullYear();
     const hours = padding(now.getHours());
     const minutes = padding(now.getMinutes());
     const seconds = padding(now.getSeconds());
-    return `${month}/${day}/${year} ${hours}:${minutes}:${seconds}`;
+    return `${month}/${day}/${year}-${hours}:${minutes}:${seconds}`;
 }
 
-console.log(getFormattedTimestamp());
+// console.log(getFormattedTimestamp());
 
 module.exports = { isValidInt, getFormattedTimestamp };
-console.log(module.exports);
+// console.log(module.exports);
