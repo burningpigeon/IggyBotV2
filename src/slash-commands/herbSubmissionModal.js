@@ -139,19 +139,36 @@ module.exports = {
             .then((ModalSubmitInteraction) => {
                 const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
                 const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')
+                const herb = ModalSubmitInteraction.fields.getStringSelectValues('herbSelect')
                 const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
 
                 // TO DO: Get timestamp
+                timestamp = getFormattedTimestamp()
+                const header = `:herb: **Herb Storage Submission** :herb:`
+                let message = "";
+                let blockQuoteMsg = ""
 
                 if (isValidInt(amount) === false) {
-                    return ModalSubmitInteraction.reply("```The amount of herbs submitted must be a valid integer.```");
+                    message = "```The amount of herbs submitted must be a valid integer.```"
+                    blockQuoteMsg = codeBlock(message);
+                    ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
                 }
-                const header = `:herb: **Herb Storage Submission** :herb:`
-                const message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
-                const blockQuoteMsg = codeBlock(message);
-                ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
-                console.log(clan);
-                console.log(getFormattedTimestamp());
+                else{
+                    // Submits to the google sheets 
+                    try{
+                        herbSubmission(timestamp, name, clan, herb, amount )
+                        console.log("HIIIII")
+                    }
+                    catch(err){
+                        message = "```There's been an error with Google Sheets. Please try again.```"
+                        blockQuoteMsg = codeBlock(message);
+                        ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                    }
+                    message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
+                    blockQuoteMsg = codeBlock(message);
+                    ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                    console.log(clan);
+                }
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);

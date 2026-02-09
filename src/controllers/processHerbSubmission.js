@@ -23,6 +23,7 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
         });
 
         if (clanIn === "thunderclan"){
+            console.log("HIII X2");
             processHerbSubmission(sheets, TC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
         else if (clanIn === "shadowclan"){
@@ -41,6 +42,7 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
 }
 
 async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nameIn, herbIn, amountIn){
+    console.log("HII x3")
     await sheetsIn.spreadsheets.values.append({
         spreadsheetId: clanHerbBackend,
         range: 'Backend!A:E', // format: SheetName!StartColumn:EndColumn
@@ -50,6 +52,7 @@ async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nam
             values: [[timestampIn, nameIn, 'Adding', herbIn, amountIn]],
         },
     });
+    console.log("HETYYY ")
 }
 
 //timestamp = getFormattedTimestamp();

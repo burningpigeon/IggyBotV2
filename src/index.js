@@ -1,6 +1,5 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
-
 const { Client, IntentsBitField, Events, GatewayIntentBits} = require('discord.js');
 const { CommandHandler} = require('djs-commander');
 
