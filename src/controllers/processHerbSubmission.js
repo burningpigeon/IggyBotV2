@@ -10,6 +10,7 @@ const WC_HERB_BACKEND = ""
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
 async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
+    console.log("wazzup");
     // all discord.js error handling is handled in herbSubmissionModal.js
     try{
         const auth = new google.auth.GoogleAuth({
@@ -24,16 +25,16 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
 
         if (clanIn === "thunderclan"){
             console.log("HIII X2");
-            processHerbSubmission(sheets, TC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processHerbSubmission(sheets, TC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
         else if (clanIn === "shadowclan"){
-            processHerbSubmission(sheets, SC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processHerbSubmission(sheets, SC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
         else if (clanIn === "riverclan"){
-            processHerbSubmission(sheets, RC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processHerbSubmission(sheets, RC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
         else if (clanIn === "windclan"){
-            processHerbSubmission(sheets, WC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processHerbSubmission(sheets, WC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
     }
     catch(error){
@@ -42,7 +43,7 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
 }
 
 async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nameIn, herbIn, amountIn){
-    console.log("HII x3")
+    console.log(">:3")
     await sheetsIn.spreadsheets.values.append({
         spreadsheetId: clanHerbBackend,
         range: 'Backend!A:E', // format: SheetName!StartColumn:EndColumn
@@ -52,7 +53,10 @@ async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nam
             values: [[timestampIn, nameIn, 'Adding', herbIn, amountIn]],
         },
     });
-    console.log("HETYYY ")
+}
+
+function printTest(){
+    console.log("Test worked! ")
 }
 
 //timestamp = getFormattedTimestamp();
@@ -63,4 +67,4 @@ async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nam
 //console.log(timestamp)
 //herbSubmission(timestamp, catName, clan, herb, amount );
 
-module.exports = { herbSubmission };
+module.exports = { herbSubmission, processHerbSubmission, printTest };

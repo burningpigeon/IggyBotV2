@@ -1,7 +1,7 @@
 const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction, blockQuote, subtext, codeBlock} = require('discord.js')
 const { isValidInt } = require('../utils');
 const { getFormattedTimestamp} = require('../utils');
-
+const { herbSubmission, processHerbSubmission, printTest} = require('../controllers/processHerbSubmission')
 
 module.exports = {
     run: async({ interaction}) => {
@@ -137,38 +137,26 @@ module.exports = {
         interaction
             .awaitModalSubmit({ filter, time: 360000 })
             .then((ModalSubmitInteraction) => {
+                const time = getFormattedTimestamp()
                 const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
-                const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')
-                const herb = ModalSubmitInteraction.fields.getStringSelectValues('herbSelect')
+                const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')[0]
+                const herb = ModalSubmitInteraction.fields.getStringSelectValues('herbSelect')[0]
                 const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
 
-                // TO DO: Get timestamp
-                timestamp = getFormattedTimestamp()
-                const header = `:herb: **Herb Storage Submission** :herb:`
-                let message = "";
-                let blockQuoteMsg = ""
-
                 if (isValidInt(amount) === false) {
-                    message = "```The amount of herbs submitted must be a valid integer.```"
-                    blockQuoteMsg = codeBlock(message);
-                    ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                    return ModalSubmitInteraction.reply("```The amount of herbs submitted must be a valid integer.```");
                 }
-                else{
-                    // Submits to the google sheets 
-                    try{
-                        herbSubmission(timestamp, name, clan, herb, amount )
-                        console.log("HIIIII")
-                    }
-                    catch(err){
-                        message = "```There's been an error with Google Sheets. Please try again.```"
-                        blockQuoteMsg = codeBlock(message);
-                        ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
-                    }
-                    message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
-                    blockQuoteMsg = codeBlock(message);
-                    ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
-                    console.log(clan);
-                }
+                const header = `:herb: **Herb Storage Submission** :herb:`
+                const message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
+                const blockQuoteMsg = codeBlock(message);
+                herbSubmission(time, name, clan, herb, amount)
+                    .then(() => { /* success */ })
+                    .catch(err => { console.error(err); });
+
+                printTest();
+                ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                
+
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);
