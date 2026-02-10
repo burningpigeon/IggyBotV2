@@ -136,27 +136,27 @@ module.exports = {
 
         interaction
             .awaitModalSubmit({ filter, time: 360000 })
-            .then((ModalSubmitInteraction) => {
-                const time = getFormattedTimestamp()
-                const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput')
-                const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')[0]
-                const herb = ModalSubmitInteraction.fields.getStringSelectValues('herbSelect')[0]
-                const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput')
+            .then(async(ModalSubmitInteraction) => {
+                const time = getFormattedTimestamp();
+                const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput');
+                const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')[0];
+                const herb = ModalSubmitInteraction.fields.getStringSelectValues('herbSelect')[0];
+                const amount = ModalSubmitInteraction.fields.getTextInputValue('amountInput');
 
-                if (isValidInt(amount) === false) {
-                    return ModalSubmitInteraction.reply("```The amount of herbs submitted must be a valid integer.```");
+                const header = `:herb: **Herb Storage Submission** :herb:`;
+
+                try {
+                    const result = await herbSubmission(time, name, clan, herb, amount);
+                    if (!result.success) {
+                        await ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${codeBlock(result.message)}`);
+                    } else {
+                        const blockQuoteMsg = codeBlock(result.message);
+                        await ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    await ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${codeBlock("Unexpected error occurred. Please try again later.")}`);
                 }
-                const header = `:herb: **Herb Storage Submission** :herb:`
-                const message = `Successfully submitted ${amount} herbs for ${name} in ${clan}!`
-                const blockQuoteMsg = codeBlock(message);
-                herbSubmission(time, name, clan, herb, amount)
-                    .then(() => { /* success */ })
-                    .catch(err => { console.error(err); });
-
-                printTest();
-                ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
-                
-
             })
             .catch((err) => {
                 console.log(`Error: ${err}`);

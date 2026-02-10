@@ -1,7 +1,7 @@
 const { google } = require('googleapis');
 const path = require('path');
 console.log("processHerbSubmission.js loaded");
-const { getFormattedTimestamp} = require('../utils');
+const { isValidInt, getFormattedTimestamp} = require('../utils');
 
 const TC_HERB_BACKEND = "1add3qNqzltBlM0PXLr6V9dOwIDX8uKH_q_sKCs9R8Bk"
 const SC_HERB_BACKEND = ""
@@ -10,8 +10,13 @@ const WC_HERB_BACKEND = ""
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
 async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
-    console.log("wazzup");
-    // all discord.js error handling is handled in herbSubmissionModal.js
+    if (isValidInt(amountIn) === false) {
+        return{
+            success: false,
+            message: "The amount of herbs submitted must be a valid integer."
+        }
+    }
+             
     try{
         const auth = new google.auth.GoogleAuth({
             keyFile: KEYFILEPATH,
@@ -24,7 +29,6 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
         });
 
         if (clanIn === "thunderclan"){
-            console.log("HIII X2");
             await processHerbSubmission(sheets, TC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
         else if (clanIn === "shadowclan"){
@@ -36,14 +40,21 @@ async function herbSubmission(timestampIn, nameIn, clanIn, herbIn, amountIn){
         else if (clanIn === "windclan"){
             await processHerbSubmission(sheets, WC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
         }
+        return{
+            success: true,
+            message: `Successfully added ${nameIn}'s ${amountIn} ${herbIn} to ${clanIn}'s herb stores!`
+        };
     }
     catch(error){
-        console.log('Append failed', error)
+        console.error("Google Sheets error:", error);
+        return{
+            success: false,
+            message: "Issue connecting to Google Sheets - Please try agin later "
+        };
     }
 }
 
 async function processHerbSubmission(sheetsIn, clanHerbBackend, timestampIn, nameIn, herbIn, amountIn){
-    console.log(">:3")
     await sheetsIn.spreadsheets.values.append({
         spreadsheetId: clanHerbBackend,
         range: 'Backend!A:E', // format: SheetName!StartColumn:EndColumn
