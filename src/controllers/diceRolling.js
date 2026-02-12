@@ -1,3 +1,5 @@
+const preyData = require('../../data/prey_categories.json');
+
 
 function roll20(){
     return Math.floor(Math.random()* 20) +1;
@@ -106,3 +108,31 @@ function huntingFailCheck(levelIn){
 //console.log(huntingFailCheck("Beginner"));
 //console.log(huntingFailCheck("Average"));
 //console.log(huntingFailCheck("Blessed"));
+
+function getRandomPrey(categoryIn){
+    const preyArray = preyData.prey_categories[categoryIn];
+
+    if(!preyArray || preyArray.length === 0){
+        return{
+            success: false,
+            message: "Category doesn't exist"
+        }
+    }
+
+    const totalWeight = preyArray.reduce((sum, prey) => sum + prey.weight, 0);
+    let randomNum = Math.random() * totalWeight;
+
+    for (const prey of preyArray){
+        randomNum -= prey.weight;
+        if (randomNum <= 0){
+            return{
+                prey_name: prey.prey_name,
+                emoji: prey.emoji
+            };
+        }
+
+    }
+}
+
+// const randomAirPrey = getRandomPrey('air');
+// console.log(randomAirPrey)
