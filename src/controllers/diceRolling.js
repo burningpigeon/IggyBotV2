@@ -538,5 +538,5 @@ function healingRoll(levelIn){
         }
     }
 }
-output = healingRoll("Mastered")
-console.log(output)
+
+module.exports = { getModifier, getModifierLvl, getRandomPrey, gatheringFailCheck, huntingFailCheck, huntingRoll, gatheringRoll, trackingRoll, sneakingRoll, swimmingRoll, climbingRoll, brawlingRoll, healingRoll };
