@@ -8,21 +8,21 @@ function roll20(){
 
 function getModifier(modifierIn){
     const modifierMap = {
-        "Beginner": -3,
+        "beginner": -3,
         "1": -3,
-        "Rookie": -2,
+        "rookie": -2,
         "2": -2,
-        "Decent": -1,
+        "decent": -1,
         "3": -1,
-        "Average": 0,
+        "average": 0,
         "4": 0,
-        "Great": 1,
+        "great": 1,
         "5": 1,
-        "Excellent": 2,
+        "excellent": 2,
         "6": 2,
-        "Mastered": 3,
+        "mastered": 3,
         "7": 3,
-        "Blessed": 5,
+        "blessed": 5,
         "8": 5,
     };
 
@@ -123,6 +123,7 @@ function getRandomPrey(categoryIn){
 function huntingRoll(levelIn, categoryIn){
     const failCheck = huntingFailCheck(levelIn)
     const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    console.log(modifier)
     if (failCheck === true){
         return{
             success: true,
@@ -539,4 +540,7 @@ function healingRoll(levelIn){
     }
 }
 
+console.log(huntingRoll("Beginner","air"))
+
 module.exports = { getModifier, getModifierLvl, getRandomPrey, gatheringFailCheck, huntingFailCheck, huntingRoll, gatheringRoll, trackingRoll, sneakingRoll, swimmingRoll, climbingRoll, brawlingRoll, healingRoll };
+
