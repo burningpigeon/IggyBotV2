@@ -5,9 +5,6 @@ function roll20(){
     return Math.floor(Math.random()* 20) +1;
 }
 
-// console.log(roll20());
-// console.log(roll20());
-// console.log(roll20());
 
 function getModifier(modifierIn){
     const modifierMap = {
@@ -38,9 +35,6 @@ function getModifier(modifierIn){
     return modifierMap[modifierIn]
 }
 
-//console.log(getModifier("Beginner"));
-//console.log(getModifier("Average"));
-//console.log(getModifier("Blessed"));
 
 function getModifierLvl(modifierIn){
     const modifierLvlMap = {
@@ -64,9 +58,6 @@ function getModifierLvl(modifierIn){
     return modifierLvlMap[modifierIn]
 }
 
-//console.log(getModifierLvl("-3"))
-//console.log(getModifierLvl("0"))
-//console.log(getModifierLvl("3"))
 
 function gatheringFailCheck(modifierIn, gatheringLvlIn){
     const failThresholds = {
@@ -87,9 +78,6 @@ function gatheringFailCheck(modifierIn, gatheringLvlIn){
     return finalRoll <= failThresholds[gatheringLvlIn];
 }
 
-//console.log(gatheringFailCheck("5", "Common"));  
-//console.log(gatheringFailCheck("5", "Legendary"));
-
 function huntingFailCheck(levelIn){
     const roll = Math.floor(parseInt(roll20()))
     const failThresholds = {
@@ -104,9 +92,7 @@ function huntingFailCheck(levelIn){
     }
     return roll <= Math.floor(parseInt(failThresholds[levelIn]));
 }
-//console.log(huntingFailCheck("Beginner"));
-//console.log(huntingFailCheck("Average"));
-//console.log(huntingFailCheck("Blessed"));
+
 
 function getRandomPrey(categoryIn){
     const preyArray = preyData.prey_categories[categoryIn];
@@ -114,7 +100,7 @@ function getRandomPrey(categoryIn){
     if(!preyArray || preyArray.length === 0){
         return{
             success: false,
-            message: "Category doesn't exist"
+            message: `Category: ${categoryIn} doesn't exist`
         }
     }
 
@@ -133,8 +119,6 @@ function getRandomPrey(categoryIn){
     }
 }
 
-// const randomAirPrey = getRandomPrey('air');
-// console.log(randomAirPrey)
 
 function huntingRoll(levelIn, categoryIn){
     const failCheck = huntingFailCheck(levelIn)
@@ -142,7 +126,7 @@ function huntingRoll(levelIn, categoryIn){
     if (failCheck === true){
         return{
             success: true,
-            message: "Unfortunately, you don't find any prey."
+            message: `Unfortunately, you don't find any prey.`
         }
     }
     else{
@@ -151,7 +135,7 @@ function huntingRoll(levelIn, categoryIn){
         if (roll === 1){
             return{
                 success: true,
-                message: " Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
+                message: ` Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
             }
         }
         else if (roll === 20){
@@ -208,7 +192,7 @@ function gatheringRoll(levelIn, rarityIn){
     if (failCheck === true){
         return{
             success: true,
-            message: "Unfortunately, you don't find any prey."
+            message: `Unfortunately, you don't find any herbs.`
         }
     }
     else{
@@ -216,7 +200,7 @@ function gatheringRoll(levelIn, rarityIn){
         if (roll === 1){
             return{
                 success: true,
-                message: "☠️ Natural [1] - You found no herbs and received an injury level of your choosing. If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
+                message: `☠️ Natural [1] - You found no herbs and received an injury level of your choosing. If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
             }
         }
         else if (roll === 20){
@@ -436,5 +420,123 @@ const modifier = Math.floor(parseInt(getModifier(levelIn)))
         }
     }
 }
-output = climbingRoll("Mastered")
+
+function brawlingRoll(levelIn){
+const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: `❗ Natural [1] - That’s gonna sting! You miss your strike and receive an injury level of your choosing. If you are currently injured in a spar, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] - Wow! You pulled off that move perfectly! You can get one extra strike for free, or you can choose to back away!`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <= 1){
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — Terrible Miss - Yikes! That really didn’t go according to plan did it? Your intended attack goes completely wrong. Perhaps you slip, or the cat countering is one step ahead of you!`
+            }
+        }
+        else if (finalRoll <=7){
+            return{
+                success: true,
+                message: ` 🎲 [${finalRoll}] — Lousy Miss - You miss your target! Maybe your move was too sloppy? At least you tried.`
+            }
+        }
+        else if (finalRoll <= 10){
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — Near Miss - Oh! So close! You just barely miss your target, they must have dodged, or your strike was just barely off the mark.`
+            }
+        }
+        else if (finalRoll <=14){
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — Mediocre Hit - Landed a hit! You meant to aim for one spot, but because of the movement of your opponent, your attack landed in a way you didn’t intend!`
+            }
+        }
+        else if (finalRoll <= 18){
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — Good Hit - Nice hit! Your attack lands how you intend it to, but with less or more impact than planned!`
+            }
+        }
+        else if (finalRoll <= 19){
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — Excellent Hit - Stars above, that was stunning! Your attack is executed perfectly, and your ancestors are proud to be related to you.`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `🎲 [${finalRoll}] — 20+ - Attacker hits, landing the attack exactly as intended!`
+            }
+        }
+    }
+}
+
+function healingRoll(levelIn){
+    const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: `❗ Natural [1] - Wow, you really aren’t cut out for healing! The level of injury/illness increases by one.`
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] - The remedy works wonders! Is this an act of StarClan? The level of injury is decreased by one! This does not count toward the overall successes, because it reduces the level instead.`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <= 1){
+            return{
+                success: true,
+                message: `☠️ [${finalRoll}] — Failure - The remedy doesn't seem to be working. Are you sure you know what you’re doing?`
+            }
+        }
+        else if (finalRoll <=7){
+            return{
+                success: true,
+                message: `☠️ [${finalRoll}] — Failure - The remedy doesn't appear to be working at the moment. Perhaps your technique was wrong?`
+            }
+        }
+        else if (finalRoll <=10){
+            return{
+                success: true,
+                message: `🥀 [${finalRoll}] — Failure - Although this almost started to make the patient feel better, there wasn't much progress.`
+            }
+        }
+        else if (finalRoll <=14){
+            return{
+                success: true,
+                message: `💞 [${finalRoll}] — 1 Success - The remedy is working! The patient starts to feel a bit better.`
+            }
+        }
+        else if (finalRoll <=19){
+            return{
+                success: true,
+                message: `💞 [${finalRoll}] — 2 Successes - The remedy is absolutely working! The patient is definitely starting to feel better.`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `💞 [${finalRoll}] — 3 Successes - The remedy works wonders! Your technique was perfect and the patient is doing much better.`
+            }
+        }
+    }
+}
+output = healingRoll("Mastered")
 console.log(output)
