@@ -349,5 +349,92 @@ const modifier = Math.floor(parseInt(getModifier(levelIn)))
     }
 }
 
-output = sneakingRoll("Mastered")
+function swimmingRoll(levelIn){
+const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: `❗ Natural [1] — Although you're not drowning, you do get injured, resulting in an injury level of your choosing! Your cat is now on the shore you started at. If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] — You successfully swim to your destination, and you’re able to give advantage to someone else’s swimming roll! This roll may be combo-ed!`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <=3){
+            return{
+                success: true,
+                message: `💦 [${finalRoll}] — You manage to tread water, but you struggle to move forward in any direction!`
+            }
+        }
+        else if (finalRoll <= 10){
+            return{
+                success: true,
+                message: `🌊 [${finalRoll}] You struggle to make it to your destination.`
+            }
+        }
+        else if (finalRoll <= 15){
+            return{
+                success: true,
+                message: `🌊 [${finalRoll}] You successfully swim to your destination! This roll may be combo-ed!`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `🌊 [${finalRoll}] You not only swim to your destination, but you look epic doing it! This roll may be combo-ed!`
+            }
+        }
+    }
+}
+
+function climbingRoll(levelIn){
+const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: `❗ Natural [1] — Your footing wasn't as stable as you thought, and you slip, resulting in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] — You not only make it to your destination, but are able to give another cat an advantage on their climbing roll! This roll may be combo-ed!`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <=3){
+            return{
+                success: true,
+                message: `🍂 [$2] — You attempt to climb, but you become stuck and are currently unable to move forward.`
+            }
+        }
+        else if (finalRoll <= 10){
+            return{
+                success: true,
+                message: `🌲 [${finalRoll}] You have trouble making it to your destination.`
+            }
+        }
+        else if (finalRoll <= 15){
+            return{
+                success: true,
+                message: `🌲 [${finalRoll}] You successfully climb to your destination with little trouble. This roll may be combo-ed!`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `🌲 [${finalRoll}] You not only make it to your destination, you look epic doing it. This roll may be combo-ed!`
+            }
+        }
+    }
+}
+output = climbingRoll("Mastered")
 console.log(output)
