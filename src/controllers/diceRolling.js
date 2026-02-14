@@ -261,6 +261,93 @@ function gatheringRoll(levelIn, rarityIn){
     }
 }
 
+function trackingRoll(levelIn){
+    const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: "❗ Natural [1] — You are so focused on the sights and smells that it seems you've missed what was right in front of you. You managed to get injured in a minor accident, resulting in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] — Not only do you seek out your objective with commendable prowess, you're also able to help someone else notice the trail as well! This roll may be combo-ed!`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <=3){
+            return{
+                success: true,
+                message: `❓ [${finalRoll}] — You could have sworn you had it! It seems you've managed to lose the trail you'd been following.`
+            }
+        }
+        else if (finalRoll <= 10){
+            return{
+                success: true,
+                message: `🔍 [${finalRoll}] You have trouble finding your target`
+            }
+        }
+        else if (finalRoll <= 15){
+            return{
+                success: true,
+                message: `🔍 [${finalRoll}] You follow the trail expertly! You easily navigate to its source. This roll may be combo-ed!`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `🔍 [${finalRoll}] Your eyes are as keen as a hawk's and your nose as great as a bloodhound's as you seek out your target! This roll may be combo-ed!`
+            }
+        }
+    }
+}
 
-output = gatheringRoll("Mastered","Rare")
+function sneakingRoll(levelIn){
+const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    if (roll === 1){
+        return{
+            success: true,
+            message: `❗ Natural [1] — Uh-oh! You were so focused on being unseen, you stopped paying attention to your environment! You managed to get injured in a minor accident, resulting in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
+        }
+    }
+    else if (roll === 20){
+        return{
+            success: true,
+            message: `🌟 Natural [20] — You know what you are doing, and are quiet as a mouse! You successfully sneak, and can give a companion advantage on their sneaking. This roll may be combo-ed!`
+        }
+    }
+    else{
+        const finalRoll = roll + modifier;
+        if (finalRoll <=3){
+            return{
+                success: true,
+                message: `🍂 [${finalRoll}] — You think you are being sneaky, though it appears you have alerted your quarry! If you hurry, you might still pull this off, though.`
+            }
+        }
+        else if (finalRoll <= 10){
+            return{
+                success: true,
+                message: `🐾 [${finalRoll}] Who knew there were so many loud plants around here?! By the stars, it’s a struggle!`
+            }
+        }
+        else if (finalRoll <= 15){
+            return{
+                success: true,
+                message: `🐾 [${finalRoll}] You are sneaking effectively! Keep up the good work! This roll may be combo-ed!`
+            }
+        }
+        else{
+            return{
+                success: true,
+                message: `🐾 [${finalRoll}] You are so sneaky, you’re virtually undetectable. If another cat detects you they must be a super cat! This roll may be combo-ed!`
+            }
+        }
+    }
+}
+
+output = sneakingRoll("Mastered")
 console.log(output)
