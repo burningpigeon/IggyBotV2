@@ -1,54 +1,71 @@
 const { getModifier, getModifierLvl, getRandomPrey, gatheringFailCheck, huntingFailCheck, huntingRoll, gatheringRoll, trackingRoll, sneakingRoll, swimmingRoll, climbingRoll, brawlingRoll, healingRoll } = require('../controllers/diceRolling');
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, codeBlock } = require('discord.js');
+const {capitalizeFirstLetters } = require('../utils');
 
 module.exports = {
     run: async ({ interaction }) => {
         const skill = interaction.options.getString('skill');
         const level = interaction.options.getString('level');
+        let header;
         let result;
         if (skill === 'air' ){
+            header = `☁️🐦 **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐦☁️`
             result = huntingRoll(level, "air").message
         }
         else if (skill === 'cave'){
+            header = `🕸️🐀 **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐀🕸️`
             result = huntingRoll(level, "cave").message
         }
         else if (skill === 'foliage'){
+            header = `🌲🐿️ **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐿️🌲`
             result = huntingRoll(level, "foliage").message
         }
         else if (skill === 'land'){
+            header = `⛰️🐀 **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐀⛰️`
             result = huntingRoll(level, "land").message
         }
         else if (skill === 'water'){
+            header = `💧🐟  **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐟💧`
             result = huntingRoll(level, "water").message
         }
         else if (skill === 'wetland'){
+            header = `🏝️🐟 **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐟🏝️`
             result = huntingRoll(level, "wetland").message
         }
         else if (skill === ' common'){
+            header = `🌿 **${capitalizeFirstLetters(level)} Gathering - ${capitalizeFirstLetters(skill)} Herb** 🌿`
             result = gatheringRoll(level, "Common").message
         }
         else if (skill === 'uncommon'){
+            header = `🌿 **${capitalizeFirstLetters(level)} Gathering - ${capitalizeFirstLetters(skill)} Herb** 🌿`
             result = gatheringRoll(level, "Uncommon").message
         }
         else if (skill === 'rare'){
+            header = `🌿 **${capitalizeFirstLetters(level)} Gathering - ${capitalizeFirstLetters(skill)} Herb** 🌿`
             result = gatheringRoll(level, "Rare").message
         }
         else if (skill === 'tracking'){
+            header = `🔍 **${capitalizeFirstLetters(level)} Tracking Attempt** 🔍`
             result = trackingRoll(level).message
         }
         else if (skill === 'sneaking'){
+            header = `🌙  **${capitalizeFirstLetters(level)} Sneaking Attempt** 🌙 `
             result = sneakingRoll(level).message
         }
         else if (skill === 'swimming'){
+            header = `🌊 **${capitalizeFirstLetters(level)} Tracking Attempt 🌊`
             result = swimmingRoll(level).message
         }
         else if (skill === 'climbing'){
+            header = `🌲 **${capitalizeFirstLetters(level)} Tracking Attempt** 🌲`
             result = climbingRoll(level).message
         }
         else if (skill === 'brawling'){
+            header = `⚔️ **${capitalizeFirstLetters(level)} Brawling - Attack Results** ⚔️`
             result = brawlingRoll(level).message
         }
         else if (skill === 'healing'){
+            header = `🌿 **${capitalizeFirstLetters(level)} Healing Results** 🌿`
             result = healingRoll(level).message
         }
         else{
@@ -57,8 +74,8 @@ module.exports = {
                 message: `Unknown skill: ${skill}`
             }
         }
-
-        await interaction.reply(`Result: ${result}`);
+        const blockQuoteMsg = codeBlock(result)
+        await interaction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
     },
     data: {
         name: 'gif',

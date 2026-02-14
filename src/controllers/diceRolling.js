@@ -540,7 +540,6 @@ function healingRoll(levelIn){
     }
 }
 
-console.log(huntingRoll("Beginner","air"))
 
 module.exports = { getModifier, getModifierLvl, getRandomPrey, gatheringFailCheck, huntingFailCheck, huntingRoll, gatheringRoll, trackingRoll, sneakingRoll, swimmingRoll, climbingRoll, brawlingRoll, healingRoll };
 

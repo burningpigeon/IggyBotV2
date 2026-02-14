@@ -24,5 +24,17 @@ function getFormattedTimestamp(){
 
 // console.log(getFormattedTimestamp());
 
-module.exports = { isValidInt, getFormattedTimestamp };
-// console.log(module.exports);
+function capitalizeFirstLetters(phraseIn){
+    if (typeof phraseIn !== 'string') {
+        throw new TypeError('Input must be a string');
+    }
+    return phraseIn
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+// console.log(capitalizeFirstLetters("hello world from javascript"));    
+
+
+module.exports = { isValidInt, getFormattedTimestamp, capitalizeFirstLetters };
