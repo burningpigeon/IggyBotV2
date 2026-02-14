@@ -102,7 +102,6 @@ function huntingFailCheck(levelIn){
         "Mastered": 2,
         "Blessed": 2,
     }
-    console.log(roll)
     return roll <= Math.floor(parseInt(failThresholds[levelIn]));
 }
 //console.log(huntingFailCheck("Beginner"));
@@ -193,7 +192,7 @@ function huntingRoll(levelIn, categoryIn){
                     message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}! 🐾 [${finalRoll}] Good Hunt: Decently executed hunt! Still some minor room for improvements. Please submit it to your Clan's Freshkill pile before Monday!`
                     }
                 }
-            else if (finalRoll <= 20){
+            else {
                 return{
                     success: true,
                     message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}! 🐾 [${finalRoll}] Excellent Hunt: Perfectly executed hunt, couldn't have gone better. Please submit it to your Clan's Freshkill pile before Monday!`
@@ -203,5 +202,65 @@ function huntingRoll(levelIn, categoryIn){
         }
     }
 
-output = huntingRoll("Mastered","air")
+function gatheringRoll(levelIn, rarityIn){
+    const failCheck = gatheringFailCheck(levelIn, rarityIn)
+    const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    if (failCheck === true){
+        return{
+            success: true,
+            message: "Unfortunately, you don't find any prey."
+        }
+    }
+    else{
+        const roll = Math.floor(parseInt(roll20()));
+        if (roll === 1){
+            return{
+                success: true,
+                message: "☠️ Natural [1] - You found no herbs and received an injury level of your choosing. If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
+            }
+        }
+        else if (roll === 20){
+            return{
+                success: true,
+                message: `🌟 Natural [20] You found 3 uses of the herb you’re looking for and can give advantage to a companion’s next gathering roll. Please log your find on your Clan's Herb Storage page when possible.`
+            }
+        }
+        else{
+            const finalRoll = roll + modifier;
+            if (finalRoll <= 1){
+                return{
+                    success: true,
+                    message: `🥀 [${finalRoll}] — Failure - You found a plant, but it’s not of any use to you or your healer. Better luck next time!`
+                }
+            }
+            else if (finalRoll <= 5){
+                return{
+                    success: true,
+                    message: `🥀 [${finalRoll}] — Failure - You found no uses on this plant. They’re out there somewhere!`
+                }
+            }
+            else if (finalRoll <=12){
+                return{
+                    success: true,
+                    message: `🌿 [${finalRoll}] — 1 Use - You found 1 use of the herb you’re looking for! Please log your find on your Clan's Herb Storage page when possible.`
+                }
+            }
+            else if (finalRoll <=17){
+                return{
+                    success: true,
+                    message: `🌿 [${finalRoll}] — 2 Uses - You found 2 uses of the herb you’re looking for! Please log your find on your Clan's Herb Storage page when possible.`
+                }
+            }
+            else{
+                return{
+                    success: true,
+                    message: `🌿 [${finalRoll}] — 3 Uses - You found 3 uses of the herb you’re looking for! Please log your find on your Clan's Herb Storage page when possible.`
+                }
+            }
+        }
+    }
+}
+
+
+output = gatheringRoll("Mastered","Rare")
 console.log(output)
