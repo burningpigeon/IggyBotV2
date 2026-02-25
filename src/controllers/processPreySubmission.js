@@ -3,7 +3,7 @@ const path = require('path');
 console.log("processHerbSubmission.js loaded");
 const { isValidInt, getFormattedTimestamp} = require('../utils');
 const preyData = require('../../data/prey.json')
-const TC_PREY_BACKEND = "1add3qNqzltBlM0PXLr6V9dOwIDX8uKH_q_sKCs9R8Bk"
+const TC_PREY_BACKEND = "1f49kKw0KPJzNbBgZE9ss0YhOv2ouI9cG8hkMkGw300I"
 const SC_PREY_BACKEND = ""
 const RC_PREY_BACKEND = ""
 const WC_PREY_BACKEND = ""
@@ -69,7 +69,7 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
         });
 
         if (clanIn === "thunderclan"){
-            await processHerbSubmission(sheets, TC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processPreySubmission(sheets, TC_PREY_BACKEND, timestampIn, nameIn, categoryIn, preyIn, sizeIn)
         }
         else if (clanIn === "shadowclan"){
             await processHerbSubmission(sheets, SC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
@@ -95,36 +95,78 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
 }
 
 async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nameIn, preyCategoryIn, preyTypeIn, sizeIn){
-    if (preyCategoryIn === "water"){
+    if (preyCategoryIn === "air"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:E', // format: SheetName!StartColumn:EndColumn
+            range: 'Form Responses 1!A:M', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
-                values: [[timestampIn, nameIn, 'Adding', herbIn, amountIn]],
+                values: [[timestampIn, nameIn, preyCategoryIn, "", "","","","","","","", preyTypeIn, sizeIn]],
             },
-        });      
+        });
+    }
+    else if (preyCategoryIn === "cave"){
+        await sheetsIn.spreadsheets.values.append({
+            spreadsheetId: clanPreyBackend,
+            range: 'Backend!A:P', // format: SheetName!StartColumn:EndColumn
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: {
+                values: [[timestampIn, nameIn, preyCategoryIn, "", "","","","","","","","","", preyTypeIn, sizeIn]],
+            },
+        });
+    }
+    else if (preyCategoryIn === "foliage" ){
+        await sheetsIn.spreadsheets.values.append({
+            spreadsheetId: clanPreyBackend,
+            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: {
+                values: [[timestampIn, nameIn, preyCategoryIn, "", "","","", preyTypeIn, sizeIn]],
+            },
+        });
+    }
+    else if (preyCategoryIn === "land"){
+        await sheetsIn.spreadsheets.values.append({
+            spreadsheetId: clanPreyBackend,
+            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: {
+                values: [[timestampIn, nameIn, preyCategoryIn, "", "", preyTypeIn, sizeIn]],
+            },
+        });
+    }
+    else if (preyCategoryIn === "water"){
+        await sheetsIn.spreadsheets.values.append({
+            spreadsheetId: clanPreyBackend,
+            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: {
+                values: [[timestampIn, nameIn, preyCategoryIn, preyTypeIn, sizeIn]],
+            },
+        });
     }
     else if (preyCategoryIn === "wetland"){
-
-    }
-    else if (preyCategoryIn === "air" ){
-
-    }
-    else if ([preyCategoryIn === "land"]){
-
-    }
-    else if ([preyCategoryIn === "foliage"]){
-
-    }
-    else if ([preyCategoryIn === "cave"]){
-
+        await sheetsIn.spreadsheets.values.append({
+            spreadsheetId: clanPreyBackend,
+            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: {
+                values: [[timestampIn, nameIn, preyCategoryIn, "", "","","","","", preyTypeIn, sizeIn]],
+            },
+        });
     }
     else{
         return{
             success: false, 
-            message: `${categoryIn} is invalid. The categories are air, cave, foliage, land, water and wetland. Please try again!`
+            message: `${preyCategoryIn} is invalid. The categories are air, cave, foliage, land, water and wetland. Please try again!`
         }
     }
 }
+
+module.exports = { processPreySubmission, isPreyValid, isPreyInCategory, submitPrey };

@@ -1,7 +1,7 @@
 const {StringSelectMenuOptionBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, StringSelectMenuBuilder, setStringSelectMenuComponent, ModalSubmitInteraction, blockQuote, subtext, codeBlock} = require('discord.js')
 const { isValidInt } = require('../utils');
 const { getFormattedTimestamp} = require('../utils');
-const { herbSubmission, processHerbSubmission, printTest} = require('../controllers/processHerbSubmission')
+const { processPreySubmission, isPreyValid, isPreyInCategory, submitPrey} = require('../controllers/processPreySubmission')
 
 module.exports = {
     run: async({ interaction}) => {
@@ -127,14 +127,14 @@ module.exports = {
                 const time = getFormattedTimestamp();
                 const name = ModalSubmitInteraction.fields.getTextInputValue('nameInput');
                 const clan = ModalSubmitInteraction.fields.getStringSelectValues('clanSelect')[0];
-                const preyCategory = ModalSubmitInteraction.fields.getStringSelectValues('preyCategory')[0];
+                const preyCategory = ModalSubmitInteraction.fields.getStringSelectValues('preyCategorySelect')[0];
                 const prey = ModalSubmitInteraction.fields.getTextInputValue('preyInput');
-                const size = ModalSubmitInteraction.fields.getTextInputValue('sizeInput')[0];
+                const size = ModalSubmitInteraction.fields.getStringSelectValues('sizeInput')[0];
 
-                const header = `:herb: **Herb Storage Submission** :herb:`;
+                const header = `:meat_on_bone: **Prey Submission** :meat_on_bone:`;
 
                 try {
-                    const result = await herbSubmission(time, name, clan, herb, amount);
+                    const result = await submitPrey(time, name, clan, prey, preyCategory, size);
                     if (!result.success) {
                         await ModalSubmitInteraction.reply(`<@${interaction.user.id}> ${header} ${codeBlock(result.message)}`);
                     } else {
