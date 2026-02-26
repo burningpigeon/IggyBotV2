@@ -1,7 +1,7 @@
 const { google } = require('googleapis');
 const path = require('path');
-console.log("processHerbSubmission.js loaded");
-const { isValidInt, getFormattedTimestamp} = require('../utils');
+console.log("processPreySubmission.js loaded");
+const { isValidInt, getFormattedTimestamp, capitalizeFirstLetters} = require('../utils');
 const preyData = require('../../data/prey.json')
 const TC_PREY_BACKEND = "1f49kKw0KPJzNbBgZE9ss0YhOv2ouI9cG8hkMkGw300I"
 const SC_PREY_BACKEND = ""
@@ -95,10 +95,11 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
 }
 
 async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nameIn, preyCategoryIn, preyTypeIn, sizeIn){
+    preyTypeIn = capitalizeFirstLetters(preyTypeIn)
     if (preyCategoryIn === "air"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Form Responses 1!A:M', // format: SheetName!StartColumn:EndColumn
+            range: 'Form Responses 1!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {

@@ -55,22 +55,22 @@ module.exports = {
             .addOptions(
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Air')
-                    .setValue('Air'),
+                    .setValue('air'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Cave')
-                    .setValue('Cave'),
+                    .setValue('cave'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Foliage')
-                    .setValue('Foliage'),
+                    .setValue('foliage'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Land')
-                    .setValue('Land'),
+                    .setValue('land'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Water')
-                    .setValue('Water'),
+                    .setValue('water'),
                 new StringSelectMenuOptionBuilder()
                     .setLabel('Wetland')
-                    .setValue('Wetland'),
+                    .setValue('wetland'),
             );
 
         const preyCategoryLabel = new LabelBuilder()

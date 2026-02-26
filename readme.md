@@ -11,11 +11,20 @@ iggybotV2/
 ├── src/
 |   ├── controllers/
 |   |   ├── diceRolling.js
+|   |   ├── herbSearch.js
+|   |   ├── herbStorage.js
+|   |   ├── preyCount.js
 |   |   ├── processHerbRemoval.js
 |   |   ├── processHerbSubmission.js
+|   |   ├── processPreySubmission.js
 |   ├── slash-commands/
+|   |   ├── diceRollingCommand.js
 |   |   ├── herbRemovalModal.js
+|   |   ├── herbSearchModal.js
+|   |   ├── herbStorageCommand.js
 |   |   ├── herbSubmissionModal.js
+|   |   ├── preyCountCommand.js
+|   |   ├── preySubmissionModal.js
 |   ├── index.js
 ├── .gitignore
 ├── .env

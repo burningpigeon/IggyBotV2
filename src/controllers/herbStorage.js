@@ -55,8 +55,6 @@ async function getHerbAmounts(sheets, clanBackend){
     })
     // TO DO: add error for if response doesn't work
     const rows = response.data.values;
-    console.log(rows[0][1])
-    console.log(rows[1][1])
     const message = `
 Alder Bark:    ${rows[0][1]}
 Borage:        ${rows[1][1]}
@@ -86,7 +84,6 @@ Yarrow:        ${rows[18][1]}
 
 (async () => {
     const result = await herbStorage("thunderclan");
-    console.log(result.message);
 })();
 
 module.exports = { herbStorage };
