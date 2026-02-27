@@ -4,7 +4,7 @@
   "description": "SOTCs discord bot for handling prey, herbs, backup rolling system and misc staff things",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
     "djs-commander": "^0.0.50",
     "dotenv": "^17.2.3",
     "googleapis": "^171.2.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
