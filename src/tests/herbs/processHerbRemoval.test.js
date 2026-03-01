@@ -24,16 +24,16 @@ jest.mock('googleapis', ()=> {
 
 const { isValidInt } = require('../../utils');
 const { google} = require('googleapis');
-const { herbSubmission } = require('../../controllers/processHerbSubmission');
+const { herbRemoval } = require('../../controllers/processHerbRemoval');
 
-describe('herbSubmission', () => {
+describe('herbRemoval', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     test('returns error if the amount is not a valid integer', async () => {
         isValidInt.mockReturnValue(false);
-        const result = await herbSubmission(
+        const result = await herbRemoval(
             "2026-02-28",
             "Firestar",
             "thunderclan",
@@ -50,7 +50,7 @@ describe('herbSubmission', () => {
 
     test('successfully submits herb', async() => {
         isValidInt.mockReturnValue(true);
-        const result = await herbSubmission(
+        const result = await herbRemoval(
             "2026-02-28",
             "Firestar",
             "thunderclan",
@@ -58,7 +58,7 @@ describe('herbSubmission', () => {
             5
         );
         expect(result.success).toBe(true)
-        expect(result.message).toContain("Successfully added");
+        expect(result.message).toContain("Successfully removed");
 
         const sheetsInstance = google.sheets.mock.results[0].value;
         const appendMock = sheetsInstance.spreadsheets.values.append;
@@ -69,7 +69,7 @@ describe('herbSubmission', () => {
                 valueInputOption: 'USER_ENTERED',
                 insertDataOption: `INSERT_ROWS`,
                 requestBody: {
-                    values: [["2026-02-28", "Firestar", "Adding", "catmint", 5]]
+                    values: [["2026-02-28", "Firestar", "Removing", "catmint", 5]]
                 }
             })
         );
@@ -79,7 +79,7 @@ describe('herbSubmission', () => {
         isValidInt.mockReturnValue(true);
         const sheetsInstance = google.sheets();
         sheetsInstance.spreadsheets.values.append.mockRejectedValue(new Error("API error"));
-        const result = await herbSubmission(
+        const result = await herbRemoval(
             "2026-02-28",
             "Firestar",
             "thunderclan",
