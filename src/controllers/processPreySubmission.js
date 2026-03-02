@@ -46,13 +46,13 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
     if(isPreyValid(preyIn) === false){
         return{
             success: false,
-            message: `${preyIn} is not a valid prey type, plese try again!`
+            message: `${preyIn} is not a valid prey type, please try again!`
         }
     }
 
     if(isPreyInCategory(preyIn, categoryIn) === false){
         return{
-            sucess: false,
+            success: false,
             message: `Prey ${preyIn} is not in category ${categoryIn}. Please try again! `
         }
     }
