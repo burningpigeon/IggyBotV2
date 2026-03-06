@@ -28,13 +28,13 @@ async function herbStorage(clanIn){
             result = await getHerbAmounts(sheets, TC_HERB_BACKEND )
         }
         else if (clanIn === "shadowclan"){
-            result = await getHerbData(sheets, herbIn, "sc", SC_HERB_BACKEND)
+            result = await getHerbAmounts(sheets, SC_HERB_BACKEND)
         }
         else if (clanIn === "riverclan"){
-            result = await getHerbData(sheets, herbIn, "rc", RC_HERB_BACKEND)
+            result = await getHerbAmounts(sheets, RC_HERB_BACKEND)
         }
         else if (clanIn === "windclan"){
-            result = await getHerbData(sheets, herbIn, "wc", WC_HERB_BACKEND)
+            result = await getHerbAmounts(sheets, WC_HERB_BACKEND)
         }
 
         return result;  // Return the result
@@ -81,9 +81,5 @@ Yarrow:        ${rows[18][1]}
         message: message,
     }
 }
-
-(async () => {
-    const result = await herbStorage("thunderclan");
-})();
 
 module.exports = { herbStorage };
