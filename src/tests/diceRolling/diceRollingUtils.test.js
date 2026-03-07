@@ -7,7 +7,7 @@ const {
     getRandomPrey
 } = require('../../controllers/diceRolling');
 
-const preyData = require('../../../data/prey.json')
+const preyData = require('../../../data/prey_categories.json')
 
 describe("roll20", () => {
     test("returns a number betwee  1 and 20", () => {
@@ -88,4 +88,47 @@ describe("gatheringFailCheck", () => {
         const result = gatheringFailCheck("beginner", "Common");
         expect(result).toBe(false)
     })
+});
+
+describe("huntingFailCheck", () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    })
+
+    test("returns true when roll fails", ()=>{
+        jest.spyOn(Math, "random").mockReturnValue(0);
+        const result = huntingFailCheck("Beginner")
+        expect(result).toBe(true)
+    });
+
+    test("returns false when roll succeeds", ()=>{
+        jest.spyOn(Math, "random").mockReturnValue(0.999);
+        const result = huntingFailCheck("Beginner")
+        expect(result).toBe(false)
+    });
+});
+
+describe("getRandomPrey", ()=> {
+    beforeEach(() => {
+        jest.spyOn(Math, "random").mockReturnValue(0);
+    });
+
+    afterEach(() => {
+        jest.restoreAllMocks()
+    });
+
+    test("returns prey object for valid category", ()=> {
+        const category = Object.keys(preyData.prey_categories)[0];
+        const result = getRandomPrey(category)
+        expect(result).toHaveProperty("prey_name");
+        expect(result).toHaveProperty("emoji")
+    });
+
+    test("returns error when category doesn't exist", ()=> {
+        const result = getRandomPrey("fakeCategory");
+        expect(result).toEqual({
+            success: false,
+            message: "Category: fakeCategory doesn't exist"
+        });
+    });
 });
