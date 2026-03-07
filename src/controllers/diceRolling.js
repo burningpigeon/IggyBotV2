@@ -121,9 +121,8 @@ function getRandomPrey(categoryIn){
 
 
 function huntingRoll(levelIn, categoryIn){
-    const failCheck = huntingFailCheck(levelIn)
-    const modifier = Math.floor(parseInt(getModifier(levelIn)))
-    console.log(modifier)
+    const failCheck = module.exports.huntingFailCheck(levelIn)
+    const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
     if (failCheck === true){
         return{
             success: true,
@@ -131,8 +130,8 @@ function huntingRoll(levelIn, categoryIn){
         }
     }
     else{
-        const roll = Math.floor(parseInt(roll20()));
-        const preyRoll = getRandomPrey(categoryIn);
+        const roll = Math.floor(parseInt(module.exports.roll20()));
+        const preyRoll = module.exports.getRandomPrey(categoryIn);
         if (roll === 1){
             return{
                 success: true,
