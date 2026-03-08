@@ -74,7 +74,6 @@ function gatheringFailCheck(modifierIn, gatheringLvlIn){
     }
 
     const finalRoll = Math.floor(parseInt(roll20()) + parseInt(getModifier(modifierIn)));
-    console.log(finalRoll)
     return finalRoll <= failThresholds[gatheringLvlIn];
 }
 
@@ -187,8 +186,8 @@ function huntingRoll(levelIn, categoryIn){
     }
 
 function gatheringRoll(levelIn, rarityIn){
-    const failCheck = gatheringFailCheck(levelIn, rarityIn)
-    const modifier = Math.floor(parseInt(getModifier(levelIn)))
+    const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
+    const failCheck = module.exports.gatheringFailCheck(levelIn, rarityIn)
     if (failCheck === true){
         return{
             success: true,
@@ -196,7 +195,7 @@ function gatheringRoll(levelIn, rarityIn){
         }
     }
     else{
-        const roll = Math.floor(parseInt(roll20()));
+        const roll = Math.floor(parseInt(module.exports.roll20()));
         if (roll === 1){
             return{
                 success: true,
@@ -223,13 +222,13 @@ function gatheringRoll(levelIn, rarityIn){
                     message: `🥀 [${finalRoll}] — Failure - You found no uses on this plant. They’re out there somewhere!`
                 }
             }
-            else if (finalRoll <=12){
+            else if (finalRoll <=10){
                 return{
                     success: true,
                     message: `🌿 [${finalRoll}] — 1 Use - You found 1 use of the herb you’re looking for! Please log your find on your Clan's Herb Storage page when possible.`
                 }
             }
-            else if (finalRoll <=17){
+            else if (finalRoll <=15){
                 return{
                     success: true,
                     message: `🌿 [${finalRoll}] — 2 Uses - You found 2 uses of the herb you’re looking for! Please log your find on your Clan's Herb Storage page when possible.`
