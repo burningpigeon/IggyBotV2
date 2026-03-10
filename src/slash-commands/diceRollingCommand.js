@@ -78,7 +78,7 @@ module.exports = {
         await interaction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
     },
     data: {
-        name: 'gif',
+        name: 'roll20',
         description: 'Backup dice roller',
         options: [
             {

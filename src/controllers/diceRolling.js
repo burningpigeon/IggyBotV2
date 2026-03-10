@@ -483,8 +483,8 @@ function brawlingRoll(levelIn){
 }
 
 function healingRoll(levelIn){
-    const modifier = Math.floor(parseInt(getModifier(levelIn)))
-    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
+    const roll = Math.floor(parseInt(module.exports.roll20())); // the base roll before modifiers, used for nats
     if (roll === 1){
         return{
             success: true,
