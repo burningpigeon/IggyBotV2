@@ -333,8 +333,8 @@ function sneakingRoll(levelIn){
 }
 
 function swimmingRoll(levelIn){
-const modifier = Math.floor(parseInt(getModifier(levelIn)))
-    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
+    const roll = Math.floor(parseInt(module.exports.roll20())); // the base roll before modifiers, used for nats
     if (roll === 1){
         return{
             success: true,
@@ -377,8 +377,8 @@ const modifier = Math.floor(parseInt(getModifier(levelIn)))
 }
 
 function climbingRoll(levelIn){
-const modifier = Math.floor(parseInt(getModifier(levelIn)))
-    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
+    const roll = Math.floor(parseInt(module.exports.roll20())); // the base roll before modifiers, used for nats
     if (roll === 1){
         return{
             success: true,
@@ -396,7 +396,7 @@ const modifier = Math.floor(parseInt(getModifier(levelIn)))
         if (finalRoll <=3){
             return{
                 success: true,
-                message: `🍂 [$2] — You attempt to climb, but you become stuck and are currently unable to move forward.`
+                message: `🍂 [${finalRoll}] — You attempt to climb, but you become stuck and are currently unable to move forward.`
             }
         }
         else if (finalRoll <= 10){
@@ -421,8 +421,8 @@ const modifier = Math.floor(parseInt(getModifier(levelIn)))
 }
 
 function brawlingRoll(levelIn){
-const modifier = Math.floor(parseInt(getModifier(levelIn)))
-    const roll = Math.floor(parseInt(roll20())); // the base roll before modifiers, used for nats
+    const modifier = Math.floor(parseInt(module.exports.getModifier(levelIn)))
+    const roll = Math.floor(parseInt(module.exports.roll20())); // the base roll before modifiers, used for nats
     if (roll === 1){
         return{
             success: true,
