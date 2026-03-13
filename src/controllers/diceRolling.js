@@ -26,13 +26,15 @@ function getModifier(modifierIn){
         "8": 5,
     };
 
-    if (!(modifierIn in modifierMap)){
+    const lowerModifier = String(modifierIn).toLowerCase();
+    
+    if (!(lowerModifier in modifierMap)){
         return{
             success: false,
             message: `Incorrect level, please try again`
         };
     }
-    return modifierMap[modifierIn]
+    return modifierMap[lowerModifier]
 }
 
 
@@ -131,6 +133,7 @@ function huntingRoll(levelIn, categoryIn){
     else{
         const roll = Math.floor(parseInt(module.exports.roll20()));
         const preyRoll = module.exports.getRandomPrey(categoryIn);
+        
         if (roll === 1){
             return{
                 success: true,
