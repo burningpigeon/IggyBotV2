@@ -32,7 +32,7 @@ module.exports = {
             header = `🏝️🐟 **${capitalizeFirstLetters(level)} Hunting - ${capitalizeFirstLetters(skill)} Prey** 🐟🏝️`
             result = huntingRoll(level, "wetland").message
         }
-        else if (skill === ' common'){
+        else if (skill === 'common'){
             header = `🌿 **${capitalizeFirstLetters(level)} Gathering - ${capitalizeFirstLetters(skill)} Herb** 🌿`
             result = gatheringRoll(level, "Common").message
         }
@@ -53,11 +53,11 @@ module.exports = {
             result = sneakingRoll(level).message
         }
         else if (skill === 'swimming'){
-            header = `🌊 **${capitalizeFirstLetters(level)} Tracking Attempt 🌊`
+            header = `🌊 **${capitalizeFirstLetters(level)} Swimming Attempt** 🌊`
             result = swimmingRoll(level).message
         }
         else if (skill === 'climbing'){
-            header = `🌲 **${capitalizeFirstLetters(level)} Tracking Attempt** 🌲`
+            header = `🌲 **${capitalizeFirstLetters(level)} Climbing Attempt** 🌲`
             result = climbingRoll(level).message
         }
         else if (skill === 'brawling'){
