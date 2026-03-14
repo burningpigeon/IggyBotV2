@@ -96,10 +96,14 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
 
 async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nameIn, preyCategoryIn, preyTypeIn, sizeIn){
     preyTypeIn = capitalizeFirstLetters(preyTypeIn)
+    
+    // TODO: Update these sheet names to match your Google Sheet
+    const sheetName = 'Form Responses 1'; // Change this if you have different sheet names for each category
+    
     if (preyCategoryIn === "air"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Form Responses 1!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -110,7 +114,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "cave"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -121,7 +125,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "foliage" ){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -132,7 +136,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "land"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -143,7 +147,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "water"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -154,7 +158,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "wetland"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
+            range: `${sheetName}!A:Z`,
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {

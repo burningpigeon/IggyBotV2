@@ -86,7 +86,7 @@ module.exports = {
             .setRequired(true)
 
         const preyLabel = new LabelBuilder()
-            .setLabel('What is your cats name?')
+            .setLabel('What prey did you catch?')
             .setDescription('The type of prey you caight i.e. Wren, Pigeon etc)')
             .setTextInputComponent(preyInput)
 
