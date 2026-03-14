@@ -110,7 +110,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "cave"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:P', // format: SheetName!StartColumn:EndColumn
+            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -121,7 +121,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "foliage" ){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -132,7 +132,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "land"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -143,7 +143,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "water"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {
@@ -154,7 +154,7 @@ async function processPreySubmission(sheetsIn, clanPreyBackend, timestampIn, nam
     else if (preyCategoryIn === "wetland"){
         await sheetsIn.spreadsheets.values.append({
             spreadsheetId: clanPreyBackend,
-            range: 'Backend!A:M', // format: SheetName!StartColumn:EndColumn
+            range: 'Backend!A:Z', // format: SheetName!StartColumn:EndColumn
             valueInputOption: 'USER_ENTERED',
             insertDataOption: 'INSERT_ROWS',
             requestBody: {

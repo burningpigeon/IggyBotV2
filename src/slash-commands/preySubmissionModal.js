@@ -19,13 +19,13 @@ module.exports = {
 
         const nameLabel = new LabelBuilder()
             .setLabel('What is your cats name?')
-            .setDescription('The name of the cat who you are submitting herbs under')
+            .setDescription('The name of the cat who you are submitting prey under')
             .setTextInputComponent(nameInput)
 
         const clanSelect = new StringSelectMenuBuilder()
             .setId(2)
             .setCustomId('clanSelect')
-            .setPlaceholder('The clan you are submitting herbs to')
+            .setPlaceholder('The clan you are submitting prey to')
             .setRequired(true)
             .addOptions(
                 new StringSelectMenuOptionBuilder()
@@ -44,7 +44,7 @@ module.exports = {
 
         const clanLabel = new LabelBuilder()
             .setLabel('Clan')
-            .setDescription('The clan you are submitting the herbs to')
+            .setDescription('The clan you are submitting the prey to')
             .setStringSelectMenuComponent(clanSelect)
 
         const preyCategorySelect = new StringSelectMenuBuilder()
@@ -87,7 +87,7 @@ module.exports = {
 
         const preyLabel = new LabelBuilder()
             .setLabel('What is your cats name?')
-            .setDescription('The name of the cat who you are submitting herbs under')
+            .setDescription('The type of prey you caight i.e. Wren, Pigeon etc)')
             .setTextInputComponent(preyInput)
 
         const sizeInput = new StringSelectMenuBuilder()

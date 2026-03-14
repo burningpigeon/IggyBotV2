@@ -14,7 +14,7 @@ module.exports = {
         const clanSelect = new StringSelectMenuBuilder()
             .setId(2)
             .setCustomId('clanSelect')
-            .setPlaceholder('The clan you are submitting herbs to')
+            .setPlaceholder('The clan you are searching for')
             .setRequired(true)
             .addOptions(
                 new StringSelectMenuOptionBuilder()
@@ -33,7 +33,7 @@ module.exports = {
 
         const clanLabel = new LabelBuilder()
             .setLabel("Clan")
-            .setDescription('The clan you are submitting the herbs to')
+            .setDescription('The clan you are searching for')
             .setStringSelectMenuComponent(clanSelect)
 
         const herbSelect = new StringSelectMenuBuilder()
@@ -102,8 +102,8 @@ module.exports = {
             );
 
         const herbLabel = new LabelBuilder()
-            .setLabel("What herb are you submitting?")
-            .setDescription('Select the herb you are submitting from the dropdown')
+            .setLabel("What herb are you searching?")
+            .setDescription('Select the herb you are searching from the dropdown')
             .setStringSelectMenuComponent(herbSelect)
 
         modal.addLabelComponents(clanLabel, herbLabel);

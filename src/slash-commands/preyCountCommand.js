@@ -12,7 +12,7 @@ module.exports = {
     },
     data: {
         name: 'prey-count',
-        description: 'Backup dice roller',
+        description: 'See your clans freshkill pile',
         options: [
             {
                 type: 3, // STRING

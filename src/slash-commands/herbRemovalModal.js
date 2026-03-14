@@ -19,13 +19,13 @@ module.exports = {
 
         const nameLabel = new LabelBuilder()
             .setLabel('What is your cats name?')
-            .setDescription('The name of the cat who you are submitting herbs under')
+            .setDescription('The name of the cat who you are removing herbs under')
             .setTextInputComponent(nameInput)
 
         const clanSelect = new StringSelectMenuBuilder()
             .setId(20)
             .setCustomId('clanSelect')
-            .setPlaceholder('The clan you are submitting herbs to')
+            .setPlaceholder('The clan you are removing herbs from')
             .setRequired(true)
             .addOptions(
                 new StringSelectMenuOptionBuilder()
@@ -44,7 +44,7 @@ module.exports = {
 
         const clanLabel = new LabelBuilder()
             .setLabel("Clan")
-            .setDescription('The clan you are submitting the herbs to')
+            .setDescription('The clan you are removing herbs from')
             .setStringSelectMenuComponent(clanSelect)
 
         const herbSelect = new StringSelectMenuBuilder()
@@ -113,8 +113,8 @@ module.exports = {
             );
 
         const herbLabel = new LabelBuilder()
-            .setLabel("What herb are you submitting?")
-            .setDescription('Select the herb you are submitting from the dropdown')
+            .setLabel("What herb are you removing?")
+            .setDescription('Select the herb you are removing from the dropdown')
             .setStringSelectMenuComponent(herbSelect)
 
         const amountInput = new TextInputBuilder()
@@ -124,8 +124,8 @@ module.exports = {
             .setRequired(true)
 
         const amountLabel = new LabelBuilder()
-            .setLabel('How many herbs are you submitting?')
-            .setDescription('The number of herbs you are submitting (1,2... etc)')
+            .setLabel('How many herbs are you removing?')
+            .setDescription('The number of herbs you are removing (1,2... etc)')
             .setTextInputComponent(amountInput)
 
         modal.addLabelComponents(nameLabel, clanLabel, herbLabel, amountLabel);
