@@ -137,7 +137,7 @@ function huntingRoll(levelIn, categoryIn){
         if (roll === 1){
             return{
                 success: true,
-                message: ` Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
+                message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}!  Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes.`
             }
         }
         else if (roll === 20){
@@ -151,19 +151,19 @@ function huntingRoll(levelIn, categoryIn){
             if (finalRoll <= 1){
                 return{
                     success: true,
-                    message: `🐾 [${finalRoll}] Terrible Hunt: You stumble over your own paws. Luckily, you are unhurt, but the prey is long gone.`
+                    message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}! 🐾 [${finalRoll}] Terrible Hunt: You stumble over your own paws. Luckily, you are unhurt, but the prey is long gone.`
                     }
                 }
             else if (finalRoll <=3){
                 return{
                     success: true,
-                    message: `🐾 [${finalRoll}] Lousy Hunt: You miss the kill sloppily. Might get wet if fishing, or covered in dirt if on the ground.`
+                    message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}! 🐾 [${finalRoll}] Lousy Hunt: You miss the kill sloppily. Might get wet if fishing, or covered in dirt if on the ground.`
                     }
                 }
             else if (finalRoll <=6){
                 return{
                     success: true,
-                    message: `🐾 [${finalRoll}] Almost Got It: You almost caught it! You miss by a whisker length!`
+                    message: `🍖 You caught sight of a ${preyRoll.emoji} ${preyRoll.prey_name}! 🐾 [${finalRoll}] Almost Got It: You almost caught it! You miss by a whisker length!`
                     }
                 }
             else if (finalRoll <=14){

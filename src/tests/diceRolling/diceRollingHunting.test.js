@@ -31,9 +31,10 @@ describe("huntingRoll", ()=>{
         mockRoll20.mockReturnValue(1)
         
         const result = diceRolling.huntingRoll("great","land")
+        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀"});
         expect(result).toEqual({
             success: true,
-            message: " Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
+            message: "🍖 You caught sight of a 🐀 rat!  Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
         });
     });
 
@@ -52,33 +53,33 @@ describe("huntingRoll", ()=>{
     test("returns terribe hunt result", ()=>{
         mockHuntingFailCheck.mockReturnValue(false);
         mockRoll20.mockReturnValue(2)
-
+        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀"});
         const result = diceRolling.huntingRoll("beginner","land")
         expect(result).toEqual({
             success: true,
-            message: "🐾 [-1] Terrible Hunt: You stumble over your own paws. Luckily, you are unhurt, but the prey is long gone."
+            message: "🍖 You caught sight of a 🐀 rat! 🐾 [-1] Terrible Hunt: You stumble over your own paws. Luckily, you are unhurt, but the prey is long gone."
         });
     });
 
     test("returns lousy hunt result", ()=>{
         mockHuntingFailCheck.mockReturnValue(false);
         mockRoll20.mockReturnValue(2)
-
+        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀"});
         const result = diceRolling.huntingRoll("average","land")
         expect(result).toEqual({
             success: true,
-            message: "🐾 [2] Lousy Hunt: You miss the kill sloppily. Might get wet if fishing, or covered in dirt if on the ground."
+            message: "🍖 You caught sight of a 🐀 rat! 🐾 [2] Lousy Hunt: You miss the kill sloppily. Might get wet if fishing, or covered in dirt if on the ground."
         });
     });
 
     test("returns almost got it hunt result", ()=>{
         mockHuntingFailCheck.mockReturnValue(false);
         mockRoll20.mockReturnValue(6)
-
+        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀"});
         const result = diceRolling.huntingRoll("average","land")
         expect(result).toEqual({
             success: true,
-            message: "🐾 [6] Almost Got It: You almost caught it! You miss by a whisker length!"
+            message: "🍖 You caught sight of a 🐀 rat! 🐾 [6] Almost Got It: You almost caught it! You miss by a whisker length!"
         });
     });
 
