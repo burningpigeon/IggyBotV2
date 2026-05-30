@@ -33,7 +33,10 @@ jest.mock('../../../data/herbs.json', () => ({
                 Leafbare: "Rare"
             },
             Locations: {
-                tc: "#tallpines"
+                tc: "#tallpines",
+                sc: "#shadowclan_location",
+                rc: "#riverclan_location",
+                wc: "#windclan_location"
             }
         }
     ]
@@ -46,16 +49,29 @@ describe("getHerbData", () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        mockGet.mockReset();
+        mockGet.mockResolvedValue({
+            data: {
+                values: []
+            }
+        });
     });
 
     test("returns error if herb isn't found", async () => {
+        mockGet.mockResolvedValue({
+            data: {
+                values: []
+            }
+        });
+        
         const sheets = google.sheets();
 
         const result = await getHerbData(
             sheets,
             "UnknownHerb",
             "tc",
-            "sheetId"
+            "sheetId",
+            "thunderclan"
         );
 
         expect(result).toEqual({
@@ -64,7 +80,7 @@ describe("getHerbData", () => {
         });
     });
 
-    test("returns full herb data when valid", async () => {
+    test("returns full herb data when valid for thunderclan", async () => {
 
         mockGet.mockResolvedValue({
             data: {
@@ -78,7 +94,8 @@ describe("getHerbData", () => {
             sheets,
             "Catmint",
             "tc",
-            "sheetId"
+            "sheetId",
+            "thunderclan"
         );
 
         expect(result.success).toBe(true);
@@ -87,6 +104,33 @@ describe("getHerbData", () => {
         expect(mockGet).toHaveBeenCalledWith({
             spreadsheetId: "sheetId",
             range: "Front End!A3:B21"
+        });
+    });
+
+    test("returns full herb data when valid for other clans", async () => {
+
+        mockGet.mockResolvedValue({
+            data: {
+                values: [["Catmint", "12"]]
+            }
+        });
+
+        const sheets = google.sheets();
+
+        const result = await getHerbData(
+            sheets,
+            "Catmint",
+            "sc",
+            "sheetId",
+            "shadowclan"
+        );
+
+        expect(result.success).toBe(true);
+        expect(result.message).toContain("Name: Catmint");
+
+        expect(mockGet).toHaveBeenCalledWith({
+            spreadsheetId: "sheetId",
+            range: "Frontend!A3:B21"
         });
     });
 });

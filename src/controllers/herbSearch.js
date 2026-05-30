@@ -4,10 +4,10 @@ console.log("processHerbSubmission.js loaded");
 const { isValidInt, getFormattedTimestamp} = require('../utils');
 const herbData = require('../../data/herbs.json')
 
-const TC_HERB_BACKEND = "1add3qNqzltBlM0PXLr6V9dOwIDX8uKH_q_sKCs9R8Bk"
-const SC_HERB_BACKEND = ""
-const RC_HERB_BACKEND = ""
-const WC_HERB_BACKEND = ""
+const TC_HERB_BACKEND = "1No8vMYVeBtRyB0SFjdpQ1YViMyH_s91V7MiFePx2ayo"
+const SC_HERB_BACKEND = "1fefNIhXxRUTW5O3vyK7OBehU7OX61sV-0CiLNULKqQ8"
+const RC_HERB_BACKEND = "1dYk2ebXyVij0QtyhTUSvr-_LoCPQXsBfoQB3naVUWDY"
+const WC_HERB_BACKEND = "1jAFq2KcECQONRsEoUNLBZGPxV77d7TxhNRHecCRzjl0"
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
 async function herbSearch(clanIn, herbIn){
@@ -26,16 +26,16 @@ async function herbSearch(clanIn, herbIn){
         let result;  // Add this to store the result
 
         if (clanIn === "thunderclan"){
-            result = await getHerbData(sheets, herbIn, "tc", TC_HERB_BACKEND)  // Store result
+            result = await getHerbData(sheets, herbIn, "tc", TC_HERB_BACKEND, "thunderclan")  // Store result
         }
         else if (clanIn === "shadowclan"){
-            result = await getHerbData(sheets, herbIn, "sc", SC_HERB_BACKEND)
+            result = await getHerbData(sheets, herbIn, "sc", SC_HERB_BACKEND, "shadowclan")
         }
         else if (clanIn === "riverclan"){
-            result = await getHerbData(sheets, herbIn, "rc", RC_HERB_BACKEND)
+            result = await getHerbData(sheets, herbIn, "rc", RC_HERB_BACKEND, "riverclan")
         }
         else if (clanIn === "windclan"){
-            result = await getHerbData(sheets, herbIn, "wc", WC_HERB_BACKEND)
+            result = await getHerbData(sheets, herbIn, "wc", WC_HERB_BACKEND, "windclan")
         }
 
         return result;  // Return the result
@@ -49,11 +49,8 @@ async function herbSearch(clanIn, herbIn){
     }
 }
 
-async function getHerbInfo(sheetsIn, clanHerbBackend, herbIn){
-    
-}
 
-async function getHerbData(sheets, herbIn, locationIn, clanBackend){
+async function getHerbData(sheets, herbIn, locationIn, clanBackend,clanIn){
     const herb = herbData.herbs.find(herb =>
         herb.Name.toLowerCase() === herbIn.toLowerCase()
     );
@@ -72,11 +69,18 @@ async function getHerbData(sheets, herbIn, locationIn, clanBackend){
             message: `Location: ${locationIn} not found for ${herb.Name}`
         };
     }
+    let range = ""
+    if(clanIn === "thunderclan"){
+        range = 'Front End!A3:B21'
+    }
+    else{
+        range = 'Frontend!A3:B21'
+    }
 
     const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: clanBackend,
-        range: 'Front End!A3:B21'
-    })
+            spreadsheetId: clanBackend,
+            range: range
+        })
 
     const rows = response.data.values;
     let finalAmount;

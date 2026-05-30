@@ -3,10 +3,10 @@ const path = require('path');
 console.log("preyCount.js loaded");
 const { isValidInt, getFormattedTimestamp} = require('../utils');
 
-const TC_PREY_BACKEND = "1f49kKw0KPJzNbBgZE9ss0YhOv2ouI9cG8hkMkGw300I"
-const SC_HERB_BACKEND = ""
-const RC_HERB_BACKEND = ""
-const WC_HERB_BACKEND = ""
+const TC_PREY_BACKEND = "1TUZHxTKaHXZ3LoO-l2S05_wbcCGQ4YmumNhS-oYh6TM"
+const SC_PREY_BACKEND = "19UhMIDx-Ca3RYzlBkbvJUqE8D7QTBIa9U_NyWbpgIPg"
+const RC_PREY_BACKEND = "1Cn9f5Ie3HWP4qqqmqYwzi0bypP6AZZlxtMFPtaj_lQ0"
+const WC_PREY_BACKEND = "1fHeLDksrPA4NSceOJt2iXZiy6RqN9fj6Fupp8IdWA10"
 
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
@@ -28,13 +28,13 @@ async function preyCount(clanIn){
             result = await getPreyCount(sheets, "ThunderClan", TC_PREY_BACKEND);
         }
         else if (clanIn === "shadowclan"){
-            await processHerbRemoval(sheets, SC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            result = await getPreyCount(sheets, "ShadowClan", SC_PREY_BACKEND);
         }
         else if (clanIn === "riverclan"){
-            await processHerbRemoval(sheets, RC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            result = await getPreyCount(sheets, "RiverClan", RC_PREY_BACKEND);
         }
         else if (clanIn === "windclan"){
-            await processHerbRemoval(sheets, WC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            result = await getPreyCount(sheets, "WindClan", WC_PREY_BACKEND);
         }
         return{
             success: true,

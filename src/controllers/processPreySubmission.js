@@ -3,10 +3,10 @@ const path = require('path');
 console.log("processPreySubmission.js loaded");
 const { isValidInt, getFormattedTimestamp, capitalizeFirstLetters} = require('../utils');
 const preyData = require('../../data/prey.json')
-const TC_PREY_BACKEND = "1f49kKw0KPJzNbBgZE9ss0YhOv2ouI9cG8hkMkGw300I"
-const SC_PREY_BACKEND = ""
-const RC_PREY_BACKEND = ""
-const WC_PREY_BACKEND = ""
+const TC_PREY_BACKEND = "1TUZHxTKaHXZ3LoO-l2S05_wbcCGQ4YmumNhS-oYh6TM"
+const SC_PREY_BACKEND = "19UhMIDx-Ca3RYzlBkbvJUqE8D7QTBIa9U_NyWbpgIPg"
+const RC_PREY_BACKEND = "1Cn9f5Ie3HWP4qqqmqYwzi0bypP6AZZlxtMFPtaj_lQ0"
+const WC_PREY_BACKEND = "1fHeLDksrPA4NSceOJt2iXZiy6RqN9fj6Fupp8IdWA10"
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
 // TO DO: buildPreyLookup should be moved to index so it only needs to run once instead of every time processPreySubmission is called
@@ -72,17 +72,17 @@ async function submitPrey(timestampIn, nameIn, clanIn, preyIn, categoryIn, sizeI
             await processPreySubmission(sheets, TC_PREY_BACKEND, timestampIn, nameIn, categoryIn, preyIn, sizeIn)
         }
         else if (clanIn === "shadowclan"){
-            await processHerbSubmission(sheets, SC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processPreySubmission(sheets, SC_PREY_BACKEND, timestampIn, nameIn, categoryIn, preyIn, sizeIn)
         }
         else if (clanIn === "riverclan"){
-            await processHerbSubmission(sheets, RC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processPreySubmission(sheets, RC_PREY_BACKEND, timestampIn, nameIn, categoryIn, preyIn, sizeIn)
         }
         else if (clanIn === "windclan"){
-            await processHerbSubmission(sheets, WC_HERB_BACKEND, timestampIn, nameIn, herbIn, amountIn)
+            await processPreySubmission(sheets, WC_PREY_BACKEND, timestampIn, nameIn, categoryIn, preyIn, sizeIn)
         }
         return{
             success: true,
-            message: `Successfully added ${nameIn}'s ${preyIn} to ${clanIn}'s freshkill pile!`
+            message: `Successfully added ${nameIn}'s ${preyIn} to ${capitalizeFirstLetters(clanIn)}'s freshkill pile!`
         };
     }
     catch(error){
