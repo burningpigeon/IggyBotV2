@@ -29,9 +29,9 @@ describe("huntingRoll", ()=>{
     test("returns natural 1 injury message", ()=> {
         mockHuntingFailCheck.mockReturnValue(false);
         mockRoll20.mockReturnValue(1)
+        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀" });
         
         const result = diceRolling.huntingRoll("great","land")
-        mockGetRandomPrey.mockReturnValue({ prey_name: "rat", emoji: "🐀"});
         expect(result).toEqual({
             success: true,
             message: "🍖 You caught sight of a 🐀 rat!  Natural [1] - Ouch! You lose the prey, and somehow hurt yourself in the process. This results in an injury level of your choosing! If you are currently injured, ignore this and instead treat it as a regular failed roll with no negative outcomes."
