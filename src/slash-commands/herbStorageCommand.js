@@ -4,11 +4,19 @@ const {capitalizeFirstLetters } = require('../utils');
 
 module.exports = {
     run: async ({ interaction }) => {
-        const clan = interaction.options.getString('clan');
-        let header = `🌿 **${capitalizeFirstLetters(clan)} Herb Storage** 🌿`
-        let result = await herbStorage(clan);
-        const blockQuoteMsg = codeBlock(result.message)
-        await interaction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+        await interaction.deferReply();
+        try{
+            const clan = interaction.options.getString('clan');
+            let header = `🌿 **${capitalizeFirstLetters(clan)} Herb Storage** 🌿`
+            let result = await herbStorage(clan);
+            const blockQuoteMsg = codeBlock(result.message)
+            await interaction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+        }
+        catch(error){
+            console.error(error);
+            await interfaction.editReply(`<@${interaction.user.id}> ${header} ${"An unexpected error occurred"}`);
+        }
+
     },
     data: {
         name: 'herb-storage',

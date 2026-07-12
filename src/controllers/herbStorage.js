@@ -49,7 +49,9 @@ async function herbStorage(clanIn){
 }
 
 async function getHerbAmounts(sheets, clanBackend, clanIn){
-    response = ""
+    let response = ""
+
+    // ThunderClan's front end is titled "Front End" instead of "Frontend" so that's why it had a seperate condition here
     if (clanIn === "thunderclan"){
         response = await sheets.spreadsheets.values.get({
             spreadsheetId: clanBackend,
