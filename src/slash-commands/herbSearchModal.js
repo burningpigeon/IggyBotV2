@@ -73,8 +73,8 @@ module.exports = {
                     .setLabel('Feverfew')
                     .setValue('Feverfew'),
                 new StringSelectMenuOptionBuilder()
-                    .setLabel('Geruanium')
-                    .setValue('Geruanium'),
+                    .setLabel('Geranium')
+                    .setValue('Geranium'),
                 new StringSelectMenuOptionBuilder()
                     .setValue('Lavender')
                     .setLabel('Lavender'),
