@@ -1,12 +1,10 @@
 const { google } = require('googleapis');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 console.log("processPreySubmission.js loaded");
 const { isValidInt, getFormattedTimestamp, capitalizeFirstLetters} = require('../utils');
 const preyData = require('../../data/prey.json')
-const TC_PREY_BACKEND = "1TUZHxTKaHXZ3LoO-l2S05_wbcCGQ4YmumNhS-oYh6TM"
-const SC_PREY_BACKEND = "19UhMIDx-Ca3RYzlBkbvJUqE8D7QTBIa9U_NyWbpgIPg"
-const RC_PREY_BACKEND = "1Cn9f5Ie3HWP4qqqmqYwzi0bypP6AZZlxtMFPtaj_lQ0"
-const WC_PREY_BACKEND = "1fHeLDksrPA4NSceOJt2iXZiy6RqN9fj6Fupp8IdWA10"
+const { TC_PREY_BACKEND, SC_PREY_BACKEND, RC_PREY_BACKEND, WC_PREY_BACKEND } = process.env;
 const KEYFILEPATH = path.join(__dirname, '../../data/extreme-ratio-443023-e1-57fff1ff9ae4.json')
 
 // TO DO: buildPreyLookup should be moved to index so it only needs to run once instead of every time processPreySubmission is called
