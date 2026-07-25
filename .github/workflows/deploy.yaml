@@ -17,5 +17,5 @@ jobs:
           key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           port: ${{ secrets.GCP_VM_PORT }}
           script: |
-            /opt/iggybot/deploy.sh
+            bash /opt/iggybot/deploy.sh
           script_stop: true
