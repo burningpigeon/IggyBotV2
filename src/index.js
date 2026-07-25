@@ -5,10 +5,16 @@ const { CommandHandler} = require('djs-commander');
 const fs = require('fs')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const readyFile = process.env.READY_FILE
 
 client.once(Events.ClientReady, (readyClient) => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
-    fs.writeFileSynx('/tmp/iggybot-ready', Date.now().toString());
+
+  if (process.platform === "linux"){
+    if(readyFile){
+      fs.writeFileSync('/tmp/iggybot-ready', Date.now().toString());
+    }
+  }
 });
 
 new CommandHandler({

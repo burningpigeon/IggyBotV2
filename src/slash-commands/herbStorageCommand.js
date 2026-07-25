@@ -1,20 +1,27 @@
-const { getHerbAmounts, herbStorage } = require('../controllers/herbStorage');
 const { SlashCommandBuilder, codeBlock } = require('discord.js');
 const {capitalizeFirstLetters } = require('../utils');
 
 module.exports = {
     run: async ({ interaction }) => {
-        await interaction.deferReply();
-        try{
+        try {
+            await interaction.deferReply();
+            const { herbStorage } = require('../controllers/herbStorage');
             const clan = interaction.options.getString('clan');
-            let header = `🌿 **${capitalizeFirstLetters(clan)} Herb Storage** 🌿`
-            let result = await herbStorage(clan);
-            const blockQuoteMsg = codeBlock(result.message)
-            await interaction.reply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
+            const header = `🌿 **${capitalizeFirstLetters(clan)} Herb Storage** 🌿`;
+            const result = await herbStorage(clan);
+            const blockQuoteMsg = codeBlock(result.message);
+            await interaction.editReply(`<@${interaction.user.id}> ${header} ${blockQuoteMsg}`);
         }
         catch(error){
-            console.error(error);
-            await interfaction.editReply(`<@${interaction.user.id}> ${header} ${"An unexpected error occurred"}`);
+            console.error('herb-storage command failed:', error);
+            if (interaction.deferred || interaction.replied) {
+                try {
+                    await interaction.editReply(`<@${interaction.user.id}> 🌿 Herb Storage An unexpected error occurred`);
+                }
+                catch(editError) {
+                    console.error('Failed to edit herb-storage reply:', editError);
+                }
+            }
         }
 
     },
