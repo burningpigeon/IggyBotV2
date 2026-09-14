@@ -10,16 +10,28 @@ function isValidInt(valueInput) {
 //console.log(isValidInt("abc")); // false
 
 function getFormattedTimestamp(){
-    const now = new Date();
-    const padding = (num) => String(num).padStart(2,'0');    
-    // now.getMonth() returns a num that represents the month but starts at 0 rather than 1
-    const month = now.getMonth()+ 1; 
-    const day = now.getDate();
-    const year = now.getFullYear();
-    const hours = padding(now.getHours());
-    const minutes = padding(now.getMinutes());
-    const seconds = padding(now.getSeconds());
-    return `${month}/${day}/${year}-${hours}:${minutes}:${seconds}`;
+    // Use an explicit timezone instead of the host machine's local time/timezone
+    // (e.g. GCP VMs default to UTC, which was causing the backend timestamp to
+    // drift several hours from the intended EST time).
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+    }).formatToParts(new Date());
+
+    const get = (type) => parts.find(p => p.type === type).value;
+    const month = get('month');
+    const day = get('day');
+    const year = get('year');
+    const hours = get('hour') === '24' ? '00' : get('hour');
+    const minutes = get('minute');
+    const seconds = get('second');
+    return `${Number(month)}/${Number(day)}/${year}-${hours}:${minutes}:${seconds}`;
 }
 
 // console.log(getFormattedTimestamp());
